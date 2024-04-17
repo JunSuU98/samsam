@@ -1,4 +1,3 @@
-module samsam{
+module samsam {
 	requires java.servlet;
-	
 }
