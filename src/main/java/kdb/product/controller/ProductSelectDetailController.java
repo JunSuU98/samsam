@@ -22,7 +22,7 @@ public class ProductSelectDetailController implements Controller {
 			log.info(productDTO);
 			request.setAttribute("productDTO", productDTO);
 			ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
-			productHandlerAdapter.setPath("/WEB-INF/view/product_select_detail_view.jsp");
+			productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_select_detail_view.jsp");
 		return productHandlerAdapter;
 	}
 

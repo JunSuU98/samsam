@@ -43,7 +43,7 @@ public class ProductInsertController implements Controller {
 		productDTO =productDAO.productInsert(productDTO);
 		request.setAttribute("productDTO", productDTO);
 		ProductHandlerAdapter productHandlerAdapter =new ProductHandlerAdapter();
-		productHandlerAdapter.setPath("/WEB-INF/view/product_insert_view.jsp");
+		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_insert_view.jsp");
 		return productHandlerAdapter;
 	}
 }
