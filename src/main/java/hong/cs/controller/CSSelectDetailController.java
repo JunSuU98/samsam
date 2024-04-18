@@ -25,7 +25,7 @@ public class CSSelectDetailController implements CSController {
 		request.setAttribute("csDTO", csDTO);
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
 		log.info("특정 문의 조회");
-		csHandlerAdapter.setPath("/WEB-INF/cs_view/cs_select_detail_view.jsp");
+		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_select_detail_view.jsp");
 		return csHandlerAdapter;
 	}
 }

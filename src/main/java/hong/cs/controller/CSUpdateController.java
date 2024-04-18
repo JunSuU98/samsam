@@ -38,7 +38,7 @@ public class CSUpdateController implements CSController {
 		
 		request.setAttribute("csDTO", csDTO);
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
-		csHandlerAdapter.setPath("/WEB-INF/cs_view/cs_update.jsp");
+		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_update.jsp");
 		return csHandlerAdapter;
 	}
 }
