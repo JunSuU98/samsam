@@ -26,7 +26,7 @@ public class ProductUpdateViewController implements Controller {
 		productDTO= productDAO.productUpdate(productDTO);
 		request.setAttribute("productDTO", productDTO);
 		ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
-		productHandlerAdapter.setPath("/WEB-INF/view/product_update_view.jsp");
+		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_update_view.jsp");
 		return productHandlerAdapter;
 	}
 

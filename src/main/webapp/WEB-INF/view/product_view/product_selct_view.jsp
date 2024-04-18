@@ -31,14 +31,20 @@
                         <table class="table table-hover">
                             <thead class="thead-light">
                                 <tr class="text-center">
-                                    <th>상품 번호</th>
-                                    <th></th>
+                                    <th>상품 이름</th>
+                                    <th>상품 가격</th>
+                                    <th>상품 업로드 날짜</th>
+                                    <th>상품 거래상태 </th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
                                 <c:forEach var="arrayList" items="${arrayList}">
                                     <tr class="text-center">
-                                        <td>${arrayList.product_number}</td>
+                                        <td>${arrayList.product_title}</td>
+                                        <td>${arrayList.product_price}</td>
+                                        <td>${arrayList.product_upload}</td>
+                                        <td>${arrayList.product_status}</td>
                                         <td>
                                             <a href="./ProductSelectDetail.pr?product_number=${arrayList.product_number}" class="btn btn-outline-info">
                                                 상품 상세 보기

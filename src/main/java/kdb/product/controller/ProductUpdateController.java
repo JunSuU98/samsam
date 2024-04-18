@@ -22,7 +22,7 @@ public class ProductUpdateController implements Controller {
 		request.setAttribute("productDTO", productDTO);
 		ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
 		log.info("특정 부서 조회");
-		productHandlerAdapter.setPath("/WEB-INF/view/product_update.jsp");
+		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_update.jsp");
 		return productHandlerAdapter;
 		
 	}

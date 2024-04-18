@@ -21,7 +21,7 @@ public class ProductSelectController  implements  Controller {
 		arrayList= productDAO.productSelectAll();
 		request.setAttribute("arrayList", arrayList);
 		ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
-		productHandlerAdapter.setPath("/WEB-INF/view/product_selct_view.jsp");
+		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_selct_view.jsp");
         return productHandlerAdapter;
 	}
 
