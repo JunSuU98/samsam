@@ -68,15 +68,12 @@
                                     <input type="text" name="product_content" id="product_content" class="form-control form-control-sm">
                                 </div>
                                 <div class="form-group">
-                                    <label for="product_status">상품 상태</label>
-                                    <input type="text" name="product_status" id="product_status" class="form-control form-control-sm">
-                                </div>
-                                <div class="form-group">
                                     <label for="product_image">이미지 업로드</label>
                                     <input type="file" name="product_image" id="product_image" class="form-control-file">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary"> 등록 </button>
+                                    <button type="reset" class="btn btn-secondary" onclick="location.href='./ProductSelect.pr'">취소</button>
                                 </div>
                             </fieldset>
                         </form>

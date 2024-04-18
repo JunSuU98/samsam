@@ -20,7 +20,7 @@ public class ProductDeleteController  implements Controller{
 		request.setAttribute("productDTO", productDTO);
 		productDTO = productDAO.productDelete(product_number);
 		ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
-		productHandlerAdapter.setPath("/WEB-INF/view/product_view_/product_delete_view.jsp");
+		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_delete_view.jsp");
 		return productHandlerAdapter;
 	}
 

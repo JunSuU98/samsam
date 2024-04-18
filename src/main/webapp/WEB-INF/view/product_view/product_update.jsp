@@ -65,6 +65,26 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+    <label for="product_status" class="ml-sm-3 col-form-label">상품 상태</label>
+    <div class="ml-sm-3">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="product_status" id="status_reservation" value="예약"
+                   ${productDTO.product_status == '예약' ? 'checked' : ''}>
+            <label class="form-check-label" for="status_reservation">예약</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="product_status" id="status_sale" value="판매"
+                   ${productDTO.product_status == '판매' ? 'checked' : ''}>
+            <label class="form-check-label" for="status_sale">판매</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="product_status" id="status_complete" value="완료"
+                   ${productDTO.product_status == '완료' ? 'checked' : ''}>
+            <label class="form-check-label" for="status_complete">완료</label>
+        </div>
+    </div>
+</div>
+                                <div class="form-group row">
                                     <label for="product_content" class="ml-sm-3 col-form-label">상품 내용</label>
                                     <div class="ml-sm-3">
                                         <input type="text" name="product_content" id="product_content" class="form-control form-control-sm"
