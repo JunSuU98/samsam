@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary">삭제</button>
-                                    <button type="reset" class="btn btn-secondary">취소</button>
+                                    <button type="reset" class="btn btn-secondary" onclick="location.href='./ProductSelect.pr'">취소</button>
                                 </div>
                             </fieldset>
                         </form>
