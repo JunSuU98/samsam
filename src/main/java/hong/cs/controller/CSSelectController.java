@@ -29,7 +29,7 @@ public class CSSelectController implements CSController {
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
 		log.info("고객 문의 조회");
 		
-		csHandlerAdapter.setPath("/WEB-INF/cs_view/cs_select_view.jsp");
+		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_select_view.jsp");
 		return csHandlerAdapter;
 	}
 }

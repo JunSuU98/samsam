@@ -29,7 +29,7 @@ public class CSDeleteContorller implements CSController {
 		log.info(csDTO);
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
 		
-		csHandlerAdapter.setPath("/WEB-INF/cs_view/cs_delete.jsp");
+		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_delete.jsp");
 		return csHandlerAdapter;
 	}
 }

@@ -46,7 +46,7 @@ public class CSInsertController implements CSController {
 		log.info("문의 정보 등록");
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
 
-		csHandlerAdapter.setPath("/WEB-INF/cs_view/cs_insert.jsp");
+		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_insert.jsp");
 		return csHandlerAdapter;
 	}
 }
