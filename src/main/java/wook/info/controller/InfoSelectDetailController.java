@@ -21,11 +21,13 @@ public InfoHandlerAdapter excute(HttpServletRequest request, HttpServletResponse
 	    
 		InfoDAO infoDAO = new InfoDAO();
 		InfoDTO infoDTO = new InfoDTO();
+	    infoDAO.infoCounting(info_Number);
 		infoDTO=infoDAO.infoSelectDetail(info_Number);
 		log.info(infoDTO);
 		request.setAttribute("infoDTO", infoDTO);
 	    InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
-	    infoHandlerAdapter.setPath("/view/info/info_selectDetail_view.jsp");
+	    infoHandlerAdapter.setPath("/WEB-INF/view/info/info_selectDetail_view.jsp");
 	return infoHandlerAdapter;
 }
 }
+

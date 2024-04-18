@@ -20,7 +20,7 @@
 		    arraylist= infoDAO.infoSelect();
 		    request.setAttribute("arraylist", arraylist);
 		    InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
-		    infoHandlerAdapter.setPath("/view/info/info_select_view.jsp");
+		    infoHandlerAdapter.setPath("/WEB-INF/view/info/info_select_view.jsp");
 			return infoHandlerAdapter;
 		}
 	

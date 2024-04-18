@@ -24,7 +24,7 @@ public InfoHandlerAdapter excute(HttpServletRequest request, HttpServletResponse
 	request.setAttribute("infoDTO", infoDTO);
 	InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
 	log.info("수정 전 데이터 조회");
-    infoHandlerAdapter.setPath("/view/info/info_update.jsp");
+    infoHandlerAdapter.setPath("/WEB-INF/view/info/info_update.jsp");
 	return infoHandlerAdapter;
 }
 }

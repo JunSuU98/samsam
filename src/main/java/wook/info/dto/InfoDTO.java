@@ -7,6 +7,7 @@ public class InfoDTO {
 	  private String info_Title;
 	  private String info_Date;
 	  private String info_Content;
+	  private int info_Count;
 	  
 	  
 	  
@@ -33,12 +34,22 @@ public class InfoDTO {
 	}
 	public void setInfo_Content(String info_Content) {
 		this.info_Content = info_Content;
+		
 	}
+		public int getInfo_Count() {
+		return info_Count;
+	}
+	public void setInfo_Count(int info_Count) {
+		this.info_Count = info_Count;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "InfoDTO [info_Number=" + info_Number + ", info_Title=" + info_Title + ", info_Date=" + info_Date
-				+ ", info_Content=" + info_Content + "]";
+				+ ", info_Content=" + info_Content + ", info_Count=" + info_Count + "]";
 	}
+		
 	  
 	
 	}
