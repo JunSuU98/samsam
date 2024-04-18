@@ -5,7 +5,48 @@
   
   
   
+  <servlet>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<servlet-class>su.member.frontcontroller.MemberDispatcherServlet</servlet-class>
+  </servlet>
   
+  <servlet-mapping>
+  	<servlet-name>MemberFrontController</servlet-name>
+  	<url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ProductFrontController</servlet-name>
+  	<servlet-class>kdb.product.frontcontroller.ProductDispatchServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ProductFrontController</servlet-name>
+  	<url-pattern>*.pr</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>InfoFrontController</servlet-name>
+  	<servlet-class>wook.info.frontcontroller.InfoDispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>InfoFrontController</servlet-name>
+  	<url-pattern>*.in</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>CsFrontController</servlet-name>
+  	<servlet-class>hong.cs.frontcontroller.CSDispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CsFrontController</servlet-name>
+  	<url-pattern>*.cs</url-pattern>
+  </servlet-mapping>
+
+
+
   
   
   <filter>
