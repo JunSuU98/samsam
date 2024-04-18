@@ -25,7 +25,7 @@ public InfoHandlerAdapter excute(HttpServletRequest request, HttpServletResponse
 	infoDTO=infoDAO.infoDelete(info_Number);
 	request.setAttribute("infoDTO", infoDTO);
 	InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
-    infoHandlerAdapter.setPath("/view/info/info_delete_view.jsp");
+    infoHandlerAdapter.setPath("/WEB-INF/view/info/info_delete_view.jsp");
 	return infoHandlerAdapter;
 
 

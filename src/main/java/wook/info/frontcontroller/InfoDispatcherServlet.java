@@ -68,7 +68,7 @@ import wook.info.hander.InfoHandlerAdapter;
 	    else if (PathUri.equals("/InfoInsert.in")) {
 			infoHandlerAdapter= new InfoHandlerAdapter();
 			//포워드로 파라미터 전송(새로운 리퀘스트 객체 생성 x)
-			infoHandlerAdapter.setPath("/view/info/info_insert.jsp");
+			infoHandlerAdapter.setPath("/WEB-INF/view/info/info_insert.jsp");
 	    log.info("공지 등록"+infoHandlerAdapter);
 		}
 	    else if (PathUri.equals("/InfoInsertView.in")) {

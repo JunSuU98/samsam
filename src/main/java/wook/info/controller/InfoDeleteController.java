@@ -24,7 +24,7 @@
 		request.setAttribute("infoDTO", infoDTO);
 		InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
 		log.info("삭제 전 데이터 조회");
-	    infoHandlerAdapter.setPath("/view/info/info_delete.jsp");
+	    infoHandlerAdapter.setPath("/WEB-INF/view/info/info_delete.jsp");
 		return infoHandlerAdapter;
 	}
 	}

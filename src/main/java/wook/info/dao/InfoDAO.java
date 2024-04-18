@@ -33,7 +33,7 @@ public ArrayList<InfoDTO> infoSelect() {
 		DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 		connection = dataSource.getConnection( );
 	
-		String sql = "select info_Number, info_Title, info_Date from INFO ORDER BY info_Number DESC ";
+		String sql = "select info_Number, info_Title, info_Date , info_Count from INFO ORDER BY info_Number DESC ";
 	
 		log.info("SQL 확인 - " + sql);
 		preparedStatement = connection.prepareStatement(sql);
@@ -43,6 +43,7 @@ public ArrayList<InfoDTO> infoSelect() {
 			infoDTO.setInfo_Number(resultSet.getInt("info_Number"));
 			infoDTO.setInfo_Title(resultSet.getString("info_Title"));
 			infoDTO.setInfo_Date(resultSet.getString("info_Date"));
+			infoDTO.setInfo_Count(resultSet.getInt("info_Count"));
 			arrayList.add(infoDTO);
 
 		}
@@ -73,7 +74,7 @@ public ArrayList<InfoDTO> infoSelect() {
 	connection = dataSource.getConnection( ); 
 	connection.setAutoCommit(false); // 자동 커밋 모드 비활성화
 		
-	String sql = "insert into INFO (info_Number , info_Title, info_Content ,info_Date) "; 
+	String sql = "insert into INFO (info_Number , info_Title, info_Content ,info_Date ) "; 
 	sql += " values (INFO_SEQUENCE.nextval ,? , ? , ? ) "; 
 	log.info("SQL 확인 - " + sql); 
 	preparedStatement = connection.prepareStatement(sql); 
@@ -227,4 +228,35 @@ public ArrayList<InfoDTO> infoSelect() {
 	return infoDTO;
 
 	}
+
+
+ @Override
+public void infoCounting(int Info_Number) {
+	 Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			Context context = new InitialContext( );
+			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
+			connection = dataSource.getConnection( );
+			// num 인스턴스 파라미터를 호출하여 업데이트한다.
+			String sql = "update INFO set Info_Count = Info_Count+1 where Info_Number =" + Info_Number;
+			log.info("SQL 확인 - " + sql);
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.executeUpdate( );
+		} catch(Exception e) {
+			log.info("조회수 업데이트 실패 - " + e);
+		} finally {
+			try {
+				preparedStatement.close( );
+				connection.close( );
+
+			} catch(SQLException e) {
+				e.printStackTrace( );
+			}
+		}
+	}
 }
+
+
+
+

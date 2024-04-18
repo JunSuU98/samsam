@@ -34,7 +34,7 @@ public InfoHandlerAdapter excute(HttpServletRequest request, HttpServletResponse
 	 infoDTO= infoDAO.infoInsert(infoDTO);
 	 request.setAttribute("infoDTO", infoDTO);
 	 InfoHandlerAdapter infoHandlerAdapter = new InfoHandlerAdapter();
-	 infoHandlerAdapter.setPath("/view/info/info_insert_view.jsp");
+	 infoHandlerAdapter.setPath("/WEB-INF/view/info/info_insert_view.jsp");
 	 log.info(infoDTO);
 	 
 	 

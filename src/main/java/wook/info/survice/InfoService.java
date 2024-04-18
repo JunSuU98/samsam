@@ -15,4 +15,6 @@ public interface InfoService {
   
   public InfoDTO infoDelete(int info_Number);
   
+  public void infoCounting(int info_Number);
+  
 }
