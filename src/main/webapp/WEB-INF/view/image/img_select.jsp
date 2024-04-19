@@ -52,7 +52,7 @@
                                         <td>${arrayList.img_update}</td>
                                         <td>
                                             <!-- 이미지를 미리보기하는 태그 -->
-                                            <img src="${arrayList.img_url}">
+                                            <img src="/ImgView.im?img_url=${arrayList.img_url}" style="max-width: 100px; max-height: 100px;">
                                         </td>
                                         <td>
                                             <a href="./ImgSelectDetail.im?img_number=${arrayList.img_number}" class="btn btn-outline-info"> 이미지 상세보기 </a>

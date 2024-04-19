@@ -20,6 +20,7 @@ import ji.img.controller.ImgSelectController;
 import ji.img.controller.ImgSelectDetailController;
 import ji.img.controller.ImgUpdateController;
 import ji.img.controller.ImgUpdateViewController;
+import ji.img.controller.ImgViewController;
 import ji.img.handler.ImgHandlerAdapter;
 
 @WebServlet("/ImgDispatcherServlet")
@@ -97,6 +98,10 @@ public class ImgDispatcherServlet extends HttpServlet implements Servlet{
 			log.info("이미지 삭제 확인 - " + imgHandlerAdapter);
 		}
 		
+		else if (pathURL.equals("/ImgView.im")) {
+			controller = new ImgViewController();
+			imgHandlerAdapter = controller.execute(request, response);
+		}
 		
 		if (imgHandlerAdapter != null) {
 			if (imgHandlerAdapter.isRedirect()) {

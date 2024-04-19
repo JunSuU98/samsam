@@ -96,6 +96,7 @@ public class ImgDAO implements ImgService{
 				imgDTO.setImg_upload(resultSet.getString("img_upload").substring(0, 10));
 				imgDTO.setImg_update(resultSet.getString("img_update").substring(0, 10));
 				imgDTO.setImg_url(resultSet.getString("img_url"));
+				System.out.println("result img_url - " + imgDTO.getImg_url());
 			}
 		} catch (Exception e) {
 			log.info("특정 이미지 조회 실패 - " + e);

@@ -28,7 +28,8 @@ public class ImgInsertController implements ImgController {
         // 이미지 번호를 사용자로부터 입력받지 않고 시퀀스로 생성되도록 수정
         //int img_number = 0; // 시퀀스로 생성했으니까 쓸 필요 없음
 
-    	String path = request.getSession().getServletContext().getRealPath("./upload");
+    	//String path = request.getSession().getServletContext().getRealPath("./upload");
+    	String path = ("C:\\samsamimg");
     	int size = 10 * 1024 * 1024;
         
     	MultipartRequest multipartRequest = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
@@ -41,7 +42,7 @@ public class ImgInsertController implements ImgController {
     	String file = (String) enumeration.nextElement();
     	String filename = multipartRequest.getFilesystemName(file);
     	
-    	String img_url = path + filename;
+    	String img_url = filename;
     	
     	System.out.println("img upload - " + img_upload);
     	System.out.println("img update - "+img_update);
