@@ -45,6 +45,15 @@
   	<url-pattern>*.cs</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+  	<servlet-name>ImgFrontController</servlet-name>
+  	<servlet-class>ji.img.frontcontroller.ImgDispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ImgFrontController</servlet-name>
+  	<url-pattern>*.im</url-pattern>
+  </servlet-mapping>
 
 
   

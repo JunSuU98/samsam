@@ -7,5 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<script type="text/javascript">
+		location.href="ProductSelect.pr";
+	</script>
 </body>
 </html>
