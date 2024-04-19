@@ -10,9 +10,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.jni.FileInfo;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
-
 import ji.img.control.ImgController;
 import ji.img.handler.ImgHandlerAdapter;
 

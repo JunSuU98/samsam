@@ -79,7 +79,7 @@ public class ProductDispatchServlet extends HttpServlet implements Servlet {
 		}
 		else if(pathURL.equals("/ProductDeleteView.pr")) {
 	productHandlerAdapter= new ProductHandlerAdapter( );
-			 productHandlerAdapter.setPath("/WEB-INF/view/poroduct_view/product_delete.jsp");
+			 productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_delete.jsp");
 			log.info("상품 삭제 화면 뷰 확인 - " + productHandlerAdapter);
 			}
 		else if(pathURL.equals("/ProductDelete.pr")) {
