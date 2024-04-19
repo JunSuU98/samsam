@@ -106,7 +106,7 @@ public class CSDAO implements CSService {
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
 			String sql = "insert into ci (cs_number, cs_title, cs_date, cs_content)";
-			sql += " values(CS_SEQ.nextval,?,?,?)";
+			sql += " values(NUMBER_SEQ.nextval,?,?,?)";
 			log.info("SQL 확인 - " + sql);
 			preparedStatement = connection.prepareStatement(sql);
 //			preparedStatement.setInt(1, csDTO.getCs_number()); cf) 시퀀스 적용

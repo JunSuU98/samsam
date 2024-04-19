@@ -19,7 +19,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		alert("입력하신 부서 번호를 등록하였습니다.");
+		alert("문의사항이 성공적으로 등록되었습니다.");
 		location.href = "./CSSelect.cs"
 	</script>
 </body>
