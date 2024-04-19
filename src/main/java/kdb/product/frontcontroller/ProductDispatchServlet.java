@@ -58,7 +58,7 @@ public class ProductDispatchServlet extends HttpServlet implements Servlet {
 	}
 			else if (pathURL.equals("/ProductInsertView.pr")) {
 				productHandlerAdapter = new ProductHandlerAdapter();
-				productHandlerAdapter.setPath("/WEB-INF/view/product_viewproduct_insert.jsp");
+				productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_insert.jsp");
 				log.info("상품 등록 화면 뷰 -"+productHandlerAdapter);
 			}
 		else if (pathURL.equals("/ProductInsert.pr")) {
