@@ -22,7 +22,7 @@
             if (confirm("상품 등록을 하시겠습니까?")) {
                 return true;
             }
-            return false; // 폼 제출을 막기 위해 추가
+            return false; 
         }
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -47,7 +47,7 @@
                         <h5>상품 등록</h5>
                     </div>
                     <div class="card-body">
-                        <form name="join" onsubmit="return joinProduct()" action="./ProductInsert.pr" method="post" id="sign_dept">
+                        <form name="join" onsubmit="return joinProduct()" action="./ProductInsert.pr" method="post" id="sign_dept" >
                             <fieldset>
                                 <div class="form-group">
                                     <input type="hidden" name="product_upload" id="product_upload" class="form-control form-control-sm">
@@ -67,9 +67,13 @@
                                     <label for="product_content">상품 내용</label>
                                     <input type="text" name="product_content" id="product_content" class="form-control form-control-sm">
                                 </div>
+                               <div class="form-group">
+                                    <input type="hidden" name="product_status" id="product_status" class="form-control form-control-sm"  value="판매중">
+                                </div>
+                      
                                 <div class="form-group">
-                                    <label for="product_image">이미지 업로드</label>
-                                    <input type="file" name="product_image" id="product_image" class="form-control-file">
+                                    <label for="product_img">상품 이미지</label>
+                                    <input type="file" name="product_img" id="product_img" class="form-control-file">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary"> 등록 </button>
