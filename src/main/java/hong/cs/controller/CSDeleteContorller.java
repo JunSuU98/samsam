@@ -26,8 +26,8 @@ public class CSDeleteContorller implements CSController {
 		
 		request.setAttribute("csDTO", csDTO);
 		csDTO=csDAO.csDelete(cs_number);
-		log.info(csDTO);
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
+		log.info(csDTO);
 		
 		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_delete.jsp");
 		return csHandlerAdapter;
