@@ -16,7 +16,7 @@ public class InfoUpdateViewController implements Controller{
 @Override
 public InfoHandlerAdapter excute(HttpServletRequest request, HttpServletResponse response) {
 	int info_Number=Integer.parseInt(request.getParameter("info_Number"));
-    String info_Title=request.getParameter("info_Number");
+    String info_Title=request.getParameter("info_Title");
     String info_Content= request.getParameter("info_Content");
     String info_Date = request.getParameter("info_Date");
 	log.info(info_Number);

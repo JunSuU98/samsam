@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>삭제되었습니다.</title>
-    <link rel="stylesheet" type="text/css" href="./css/delete.css">
+    <link rel="stylesheet" type="text/css" href="./css/infodelete.css">
 </head>
 <body>
     <div class="container">

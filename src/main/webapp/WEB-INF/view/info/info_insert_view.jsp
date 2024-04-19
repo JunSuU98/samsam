@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지가 입력되었습니다</title>
-    <link rel="stylesheet" type="text/css" href="./css/insert.css">
+    <link rel="stylesheet" type="text/css" href="./css/infoinsert.css">
 </head>
 <body>
     <div class="container">

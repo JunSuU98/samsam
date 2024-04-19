@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title><c:out value="${infoDTO.info_Title}" /></title>
-    <link rel="stylesheet" type="text/css" href="./css/selectDetail.css">
+    <link rel="stylesheet" type="text/css" href="./css/infoselectDetail.css">
 </head>
 <body>
 <section class="INFO">

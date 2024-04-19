@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>공지 사항</title>
     <link rel="stylesheet" type="text/css" href="./css/info.css">
-    <link rel="stylesheet" type="text/css" href="./css/select.css">
+    <link rel="stylesheet" type="text/css" href="./css/infoselect.css">
 </head>
 <body>
 <section class="INFO">
