@@ -25,7 +25,7 @@
                 alert("상품내용을 입력하세요.");
                 return false;
             }
-            if (confirm("상품 등록을 하시겠습니까?")) {
+            if (confirm("상품 수정을 하시겠습니까?")) {
                 return true;
             }
             return false;
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-secondary">등록</button>
+                                    <button type="submit" class="btn btn-secondary">수정</button>
                                  <button type="reset" class="btn btn-secondary" onclick="location.href='./ProductSelect.pr'">취소</button>
                                 </div>
                             </fieldset>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    alert("입력하신 상품을 등록하였습니다.");
+    alert(" 상품을 등록하였습니다.");
     location.href="./ProductSelect.pr";
 </script>
 </body>
