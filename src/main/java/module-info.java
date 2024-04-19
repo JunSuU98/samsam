@@ -3,4 +3,5 @@ module samsam {
 	requires commons.logging;
 	requires java.sql;
 	requires java.naming;
+	requires cos;
 }

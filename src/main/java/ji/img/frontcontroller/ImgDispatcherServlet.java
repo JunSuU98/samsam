@@ -61,7 +61,7 @@ public class ImgDispatcherServlet extends HttpServlet implements Servlet{
 		else if (pathURL.equals("/ImgInsertView.im")) {
 			imgHandlerAdapter = new ImgHandlerAdapter();
 			
-			imgHandlerAdapter.setPath("./image/img_insert.jsp");
+			imgHandlerAdapter.setPath("/WEB-INF/view/image/img_insert.jsp");
 			log.info("이미지 등록 화면 뷰 확인 - " + imgHandlerAdapter);
 		}
 		
@@ -86,7 +86,7 @@ public class ImgDispatcherServlet extends HttpServlet implements Servlet{
 		else if (pathURL.equals("/ImgDeleteView.im")) {
 			imgHandlerAdapter = new ImgHandlerAdapter();
 			
-			imgHandlerAdapter.setPath("./image/img_delete.jsp");
+			imgHandlerAdapter.setPath("/WEB-INF/view/image/img_delete.jsp");
 			log.info("이미지 삭제 화면 뷰 확인 - " + imgHandlerAdapter);
 		}
 		

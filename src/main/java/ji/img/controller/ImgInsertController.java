@@ -87,7 +87,7 @@ public class ImgInsertController implements ImgController {
 
         ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
 
-        imgHandlerAdapter.setPath("./image/img_insert_view.jsp");
+        imgHandlerAdapter.setPath("/WEB-INF/view/image/img_insert_view.jsp");
 
         return imgHandlerAdapter;
     }

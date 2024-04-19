@@ -30,7 +30,7 @@ public class ImgSelectController implements ImgController{
 		ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
 		log.info("이미지 정보 조회");
 		
-		imgHandlerAdapter.setPath("./image/img_select.jsp");
+		imgHandlerAdapter.setPath("/WEB-INF/view/image/img_select.jsp");
 		return imgHandlerAdapter;
 	}
 

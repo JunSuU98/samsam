@@ -41,7 +41,7 @@ public class ImgUpdateViewController implements ImgController{
 		request.setAttribute("imgDTO", imgDTO);
 		ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
 		
-		imgHandlerAdapter.setPath("./image/img_update_view.jsp");
+		imgHandlerAdapter.setPath("WEB-INF/view/image/img_update_view.jsp");
 		return imgHandlerAdapter;
 	}
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>이미지 정보 수정</title>
 <link rel="stylesheet" type="text/css"
-	href="./css/bootstrap.min_4.5.0.css">
+	href="./css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="./css/global.css">
 <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
 <script src="./js/bootstrap.min_4.5.0.js" type="text/javascript"></script>

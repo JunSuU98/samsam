@@ -30,7 +30,7 @@ public class ImgDeleteController implements ImgController {
 		log.info(imgDTO);
 		ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
 		
-		imgHandlerAdapter.setPath("./image/img_delete_view.jsp");
+		imgHandlerAdapter.setPath("/WEB-INF/view/image/img_delete_view.jsp");
 		return imgHandlerAdapter;
 	}
 

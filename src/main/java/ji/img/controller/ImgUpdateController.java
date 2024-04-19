@@ -30,7 +30,7 @@ public class ImgUpdateController implements ImgController{
 		ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
 		log.info("특정 이미지 조회");
 		
-		imgHandlerAdapter.setPath("./image/img_update.jsp");
+		imgHandlerAdapter.setPath("/WEB-INF/view/image/img_update.jsp");
 		return imgHandlerAdapter;
 	}
 }
