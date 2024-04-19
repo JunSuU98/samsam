@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.insertcontainer {
+            text-align: right;
+            margin-top: 11px;
+            margin-right: 60px; /* 오른쪽으로부터 10px만 이동 */
+        }
+        .add-notice-link {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .add-notice-link:hover {
+            text-decoration: underline;
+        }

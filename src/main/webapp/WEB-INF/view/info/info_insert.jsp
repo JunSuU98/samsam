@@ -20,10 +20,21 @@
 	            <input type="text" id="info_Title" name="info_Title"><span class="error"></span><br>
 	            <label for="info_Content">*내용:</label><br>
 	            <textarea id="info_Content" name="info_Content"></textarea><span class="error"></span><br>
-	            <label for="info_Date">*날짜:</label><br>
-	            <input type="date" id="info_Date" name="info_Date"><span class="error"></span><br>
+	            <input type="hidden" id="info_Date" name="info_Date"><br>
 	            <input type="submit" value="등록">
 	        </form>
 	    </div>
+<script>
+        // 현재 날짜를 가져와서 히든 필드에 설정
+        document.addEventListener('DOMContentLoaded', function() {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+            document.getElementById('info_Date').value = today;
+        });
+    </script>
 	</body>
 	</html>

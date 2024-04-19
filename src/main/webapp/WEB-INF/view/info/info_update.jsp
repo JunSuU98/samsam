@@ -20,8 +20,8 @@
             <input type="text" id="info_Title" name="info_Title" value="${infoDTO.info_Title}"><span class="error"></span><br>
             <label for="info_Content">내용</label><br>
             <textarea id="info_Content" name="info_Content">${infoDTO.info_Content}</textarea><span class="error"></span><br>
-            <label for="info_Date">날짜</label><br>
-            <input type="date" id="info_Date" name="info_Date" value="${infoDTO.info_Date}"><span class="error"></span><br> <!-- 날짜 입력란 -->
+            
+           <input type="hidden" id="info_Date" name="info_Date"><br> <!-- 날짜 입력란 -->
             <input type="hidden" name="info_Number" value="${infoDTO.info_Number}"> <!-- 수정할 데이터의 고유 식별자(hidden 필드로 전달) -->
              <button onclick="removeUpdateCheck()">수정</button>
             
@@ -36,6 +36,17 @@
                     event.preventDefault(); // 이벤트 중단
                 }
             }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = yyyy + '-' + mm + '-' + dd;
+                document.getElementById('info_Date').value = today;
+            });
+            
         </script>
         </form>
     </div>
