@@ -12,6 +12,19 @@
 </head>
 <body>
 
+<header id="main-header" class="py-2 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/ProductSelect.pr">
+					<h1>중고 웹 솔루션</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
 	<header>
 		<h2> 전체 회원 조회 </h2>
 	</header>

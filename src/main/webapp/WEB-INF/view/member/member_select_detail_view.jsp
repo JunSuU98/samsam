@@ -11,6 +11,17 @@
 <script src="./js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
+<header id="main-header" class="py-2 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/ProductSelect.pr">
+					<h1>중고 웹 솔루션</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
 
 	<header>
 		<h1>회원 상세 정보</h1>
