@@ -11,10 +11,19 @@
 <script src="./js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
+<header id="main-header" class="py-2 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/ProductSelect.pr">
+					<h1>상품</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
 
-	<header>
 		<h2>로그인</h2>
-	</header>
 	
 	<main>
 	
