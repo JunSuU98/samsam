@@ -158,14 +158,15 @@ public class ProductDAO implements ProductService {
 			DataSource dataSource=(DataSource) context.lookup("java:comp/env/jdbc");
 			connection =dataSource.getConnection();
 			connection.setAutoCommit(false);
-			String sql="update PRODUCT set product_title=?,product_price=?,product_update=sysdate,product_content=?";
+			String sql="update PRODUCT set product_title=?,product_price=?,product_update=sysdate,product_content=?,product_status=?";
 			sql+="	where product_number = ?";
 			log.info("SQL 확인"+sql);
 			preparedStatement =connection.prepareStatement(sql);
 			preparedStatement.setString(1, productDTO.getProduct_title());
 			preparedStatement.setInt(2, productDTO.getProduct_price());
 			preparedStatement.setString(3, productDTO.getProduct_content());
-			preparedStatement .setInt(4, productDTO.getProduct_number());
+			preparedStatement.setString(4, productDTO.getProduct_status());
+			preparedStatement .setInt(5, productDTO.getProduct_number());
 			int count = preparedStatement.executeUpdate();
 			if (count>0) {
 				connection.commit();
