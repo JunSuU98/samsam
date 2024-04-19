@@ -30,7 +30,7 @@ public class CSDAO implements CSService {
 			Context context = new InitialContext();
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
-			String sql = "select cs_number, cs_title, cs_date from ci";
+			String sql = "select cs_number, cs_title, cs_date from ci order by cs_number desc";
 			log.info("SQL 확인 - " + sql);
 			preparedStatement = connection.prepareStatement(sql);
 			resultSet = preparedStatement.executeQuery();
@@ -105,10 +105,9 @@ public class CSDAO implements CSService {
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
 			String sql = "insert into ci (cs_number, cs_title, cs_date, cs_content)";
-			sql += " values(?,?,?,?)";
+			sql += " values(number_seq.NEXTVAL,?,?,?)";
 			log.info("SQL 확인 - " + sql);
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, csDTO.getCs_number());
 			preparedStatement.setString(2, csDTO.getCs_title());
 			preparedStatement.setString(3, csDTO.getCs_date());
 			preparedStatement.setString(4, csDTO.getCs_content());
