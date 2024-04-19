@@ -8,7 +8,7 @@
 	    <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
 	    <script src="./js/jquery.validate.min.js" type="text/javascript"></script>
 	    <script src="./js/validation.js"  type="text/javascript"></script>
-	    <link rel="stylesheet" type="text/css" href="./css/insert.css">
+	    <link rel="stylesheet" type="text/css" href="./css/infoinsert.css">
 	    
 	 <!-- CSS 파일 경로 -->
 	</head>
