@@ -39,7 +39,7 @@
 								</div>
 								<div class="col-md-4">
 									<p>
-										<strong>문의 일자:</strong> ${csDTO.cs_date}
+										<strong>문의 일자:</strong> ${csDTO.cs_date.substring(0,10)}
 									</p>
 								</div>
 							</div>

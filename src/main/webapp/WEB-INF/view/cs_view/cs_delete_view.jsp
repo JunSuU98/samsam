@@ -32,18 +32,14 @@
 								id="customer_inquiry_form">
 								<fieldset>
 									<div class="form-group row">
-										<label for="cs_number" class="ml-sm-3 col-form-label">문의
-											번호</label>
+										<label for="cs_number" class="ml-sm-3 col-form-label"></label>
 										<div class="col-sm-9">
-											<input type="text" name="cs_number" id="cs_number"
-												class="form-control">
+											<input type="hidden" name="cs_number" id="cs_number"
+												class="form-control" value="${param.cs_number}">
 										</div>
 									</div>
-									<div class="form-group row">
-										<div class="col-sm-9 offset-sm-3 button-group">
-											<button type="submit" class="btn btn-success">문의 삭제</button>
-											<button type="reset" class="btn btn-secondary">취소</button>
-										</div>
+									<div class="col-sm-9 offset-sm-3 button-group">
+										<button type="submit" class="btn btn-success">문의 삭제</button>
 									</div>
 								</fieldset>
 							</form>

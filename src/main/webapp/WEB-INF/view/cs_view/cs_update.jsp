@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script type="text/javascript">
-		alert("입력하신 ${csDTO.cs_number}번의 부서 번호를 수정하였습니다.");
+		alert("입력하신 내용으로 수정하였습니다.");
 		location.href = "./CSSelect.cs";
 	</script>
 </body>

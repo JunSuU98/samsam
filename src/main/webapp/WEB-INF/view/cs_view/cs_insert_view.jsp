@@ -7,6 +7,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>고객 문의 등록</title>
 <link rel="stylesheet" type="text/css" href="./css/cs.css">
+<script>
+	// 페이지가 로드될 때 실행되는 함수
+	window.onload = function() {
+		// 오늘 날짜를 가져와서 설정
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var formattedDate = year + '-' + month + '-' + day;
+
+		// 숨겨진 입력란에 현재 날짜 설정
+		document.getElementById('cs_date').value = formattedDate;
+	};
+</script>
 </head>
 <body>
 	<header id="main-header" class="py-2 text-white">
@@ -39,14 +53,8 @@
 												class="form-control">
 										</div>
 									</div>
-									<div class="form-group row">
-										<label for="cs_date" class="col-sm-3 col-form-label">문의
-											일자</label>
-										<div class="col-sm-9">
-											<input type="date" name="cs_date" id="cs_date"
-												class="form-control">
-										</div>
-									</div>
+									<!-- 날짜 입력란을 숨겨진 필드로 설정 -->
+									<input type="hidden" name="cs_date" id="cs_date">
 									<div class="form-group row">
 										<label for="cs_content" class="col-sm-3 col-form-label">문의
 											내용</label>

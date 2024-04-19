@@ -44,7 +44,7 @@
 										<tr class="text-center">
 											<td>${arrayList.cs_number}</td>
 											<td>${arrayList.cs_title}</td>
-											<td>${arrayList.cs_date}</td>
+											<td>${arrayList.cs_date.substring(0,10)}</td>
 											<td><a
 												href="./CSSelectDetail.cs?cs_number=${arrayList.cs_number}"
 												class="btn btn-outline-info"> 문의 상세 보기 </a></td>

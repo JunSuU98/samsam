@@ -8,6 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>고객 문의 수정</title>
 <link rel="stylesheet" type="text/css" href="./css/cs.css">
+<script>
+	// 페이지가 로드될 때 실행되는 함수
+	window.onload = function() {
+		// 오늘 날짜를 가져와서 설정
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+		var formattedDate = year + '-' + month + '-' + day;
+
+		// 숨겨진 입력란에 현재 날짜 설정
+		document.getElementById('cs_date').value = formattedDate;
+	};
+</script>
 </head>
 <body>
 	<header id="main-header" class="py-2 btn-dark text-white">
@@ -33,11 +47,10 @@
 								id="customer_inquiry_form">
 								<fieldset>
 									<div class="form-group row">
-										<label for="cs_number" class="ml-sm-3 col-form-label">
-											문의 번호 </label>
+										<label for="cs_number" class="ml-sm-3 col-form-label"></label>
 										<div class="col-sm-9">
-											<input type="text" name="cs_number" id="cs_number"
-												class="form-control">
+											<input type="hidden" name="cs_number" id="cs_number"
+												class="form-control" value="${csDTO.cs_number}">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -45,15 +58,14 @@
 											문의 제목 </label>
 										<div class="col-sm-9">
 											<input type="text" name="cs_title" id="cs_title"
-												class="form-control">
+												class="form-control" value="${csDTO.cs_title}">
 										</div>
 									</div>
 									<div class="form-group row">
-										<label for="cs_date" class="ml-sm-3 col-form-label">문의
-											일자 </label>
+										<label for="cs_date" class="ml-sm-3 col-form-label"></label>
 										<div class="col-sm-9">
-											<input type="date" name="cs_date" id="cs_date"
-												class="form-control">
+											<input type="hidden" name="cs_date" id="cs_date"
+												class="form-control" value="${csDTO.cs_date}">
 										</div>
 									</div>
 									<div class="form-group row">
@@ -61,7 +73,7 @@
 											내용</label>
 										<div class="col-sm-9">
 											<textarea name="cs_content" id="cs_content" rows="5"
-												class="form-control"></textarea>
+												class="form-control">${csDTO.cs_content}</textarea>
 										</div>
 									</div>
 									<div class="form-group row">

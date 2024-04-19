@@ -18,8 +18,8 @@ public class CSInsertController implements CSController {
 
 	@Override
 	public CSHandlerAdapter execute(HttpServletRequest request, HttpServletResponse response) {
-		int cs_number=Integer.parseInt(request.getParameter("cs_number"));
-		log.info(cs_number);
+//		int cs_number=Integer.parseInt(request.getParameter("cs_number"));
+//		log.info(cs_number);
 		String cs_title = request.getParameter("cs_title");
 		log.info(cs_title);
 		String cs_date = request.getParameter("cs_date");
@@ -35,7 +35,7 @@ public class CSInsertController implements CSController {
 		log.info(arrayList);
 		request.setAttribute("arrayList", arrayList);
 		
-		csDTO.setCs_number(cs_number);
+//		csDTO.setCs_number(cs_number);
 		csDTO.setCs_title(cs_title);
 		csDTO.setCs_date(cs_date);
 		csDTO.setCs_content(cs_content);
