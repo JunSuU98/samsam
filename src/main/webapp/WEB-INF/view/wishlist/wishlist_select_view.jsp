@@ -30,7 +30,7 @@
                 <th style="display: none;">상품 번호</th>
                 <th style="display: none;">회원 번호</th>
                 <th>찜 목록 추가일</th>
-                <th>비고 <button type="button" onclick = "deleteAll()">전체삭제</button></th>
+                <th>비고 <button type="button" onclick = "deleteAll(${sessionScope.member_number})">전체삭제</button></th>
             </tr>
         </thead>
         <tbody>
@@ -72,28 +72,27 @@ function selectDetail(product_number) {
 function deleteDetail(member_number, product_number) {
 	window.location.href = "./WishlistDelete.wi?member_number=" + member_number + "&product_number=" + product_number;
 }
-function deleteAll() {
-    if (confirm("정말로 전체 삭제하시겠습니까?")) {
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "./WishlistDeleteAll.wi", true);
-       
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    var response = JSON.parse(xhr.responseText);
-                    if (response.exists) {
-                        alert("전체 삭제가 완료되었습니다.");
-                    } else {
-                        alert("삭제할 상품이 없습니다.");
-                    }
-                    window.location.href = "./wishlistindex.jsp";
-                } else {
-                    alert("전체 삭제에 실패하였습니다.");
-                }
-            }
-        };
-        xhr.send();
-    }
+
+function deleteAll(member_number) {
+	if(confirm("정말로 전체 삭제하시겠습니까?")){
+		let form = document.createElement('form');
+	
+		let member_number_input = document.createElement('input');
+		member_number_input.setAttribute('type', 'hidden');
+		member_number_input.setAttribute('name', 'member_number');
+		member_number_input.setAttribute('value', member_number);
+		
+		form.appendChild(member_number_input);
+		
+		form.setAttribute('method', 'post');
+		form.setAttribute('action', '/WishlistDeleteAll.wi');
+		
+		document.body.appendChild(form);
+		
+		form.submit();
+
+	}
+		
 }
 </script>
 </body>

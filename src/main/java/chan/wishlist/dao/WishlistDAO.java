@@ -221,10 +221,15 @@ public WishlistDTO wishlistSelect(WishlistDTO wishlistDTO) {
 		 DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 		 connection = dataSource.getConnection();
 		 connection.setAutoCommit(false);
-		 String sql = "delete from wishlist";
+
+		 String sql = "delete from wishlist where member_number = ?";
 		 log.info("SQL - " +sql);
+
 		 preparedStatement = connection.prepareStatement(sql);
+		 preparedStatement.setInt(1, wishlistDTO.getMember_number());
+		 
 		 int count = preparedStatement.executeUpdate();
+
 		 if (count>0) {
 				connection.commit();
 				log.info("커밋되었습니다.");
