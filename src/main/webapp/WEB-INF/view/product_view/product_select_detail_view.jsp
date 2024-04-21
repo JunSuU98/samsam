@@ -6,8 +6,68 @@
     <meta charset="UTF-8">
     <title>상세 상품정보</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+    <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
     <script type="text/javascript">
+    
+   		$.get("/WishlistSelect.wi", function(response) {
+   			var member_number_arr = [];
+   			var product_number_arr = [];
+   			
+   		    $(response).find('.wishlist_member_number').each(function() {
+   		        var value = $(this).text(); 
+   		        member_number_arr.push(value); 
+   		    });
+   		    
+   		    $(response).find('.wishlist_product_number').each(function() {
+   		        var value = $(this).text(); 
+   		        product_number_arr.push(value); 
+   		    });
+
+   		    var wishlist_button = document.getElementById('wishlist_button');
+   		    
+   		    var session_member_number = document.getElementById('session_member_number').innerText;
+   		    var td_product_number = document.getElementById('td_product_number').innerText;
+   		    
+   		    console.log(member_number_arr[0])
+   		    console.log(session_member_number)
+   		    console.log(td_product_number)
+
+   		    if( (member_number_arr[0] == session_member_number) && (product_number_arr.includes(td_product_number)) ){
+   		    	wishlist_button.innerText = '찜해제';
+   		    	wishlist_button.removeAttribute('onclick');
+   		    	wishlist_button.setAttribute('onclick', 'wishlistDelete(' + session_member_number + ', ' + td_product_number + ')');
+   		    }
+
+   		    console.log(member_number_arr); 	
+   		    console.log(product_number_arr); 	
+		});
+   		
+   		function wishlistDelete(session_member_number, td_product_number) {
+			let form = document.createElement('form');
+    		
+    		let member_number_input = document.createElement('input');
+    		member_number_input.setAttribute('type', 'hidden');
+    		member_number_input.setAttribute('name', 'member_number');
+    		member_number_input.setAttribute('value', session_member_number);
+    		
+    		let product_number_input = document.createElement('input');
+    		product_number_input.setAttribute('type', 'hidden');
+    		product_number_input.setAttribute('name', 'product_number');
+    		product_number_input.setAttribute('value', td_product_number);
+
+    		
+    		form.appendChild(member_number_input);
+    		form.appendChild(product_number_input);
+    		
+    		form.setAttribute('method', 'post');
+    		form.setAttribute('action', '/WishlistDelete.wi');
+    		
+    		document.body.appendChild(form);
+    		
+			form.submit();
+    		
+		}
+    
     	function wishlistPost(member_number, product_number, product_title){
     		let form = document.createElement('form');
     		
@@ -35,7 +95,14 @@
     		form.setAttribute('action', '/WishlistInsert.wi');
     		
     		document.body.appendChild(form);
-    		form.submit();
+    		
+    		if(member_number.value == ''){
+    			alert("로그인 후 이용바랍니다.");
+    			return false;
+    		} else {
+				form.submit();
+    		}
+    		
     	}
     
     </script>
@@ -74,7 +141,7 @@
                             </thead>
                             <tbody>
                                 <tr class="text-center">
-                                    <td>${productDTO.product_number}</td>
+                                    <td id="td_product_number">${productDTO.product_number}</td>
                                     <td>${productDTO.product_upload}</td>
                                     <td>${productDTO.product_update}</td>
                                     <td>${productDTO.product_title}</td>
@@ -92,9 +159,11 @@
                             </div>
 
 							<div class="col-md-4">
-                                <button onclick="wishlistPost(${sessionScope.member_number}, ${productDTO.product_number}, '${productDTO.product_title}')" class="btn btn-primary btn-block">
+								<p id="session_member_number" style="display: none;">${sessionScope.member_number}</p>
+                                <button id="wishlist_button" onclick="wishlistPost(${sessionScope.member_number}, ${productDTO.product_number}, '${productDTO.product_title}')" class="btn btn-primary btn-block">
 									찜하기
                                 </button>
+
                             </div>
 
 

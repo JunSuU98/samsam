@@ -8,8 +8,8 @@
 </head>
 <body>
     <script type = "text/javascript">
-    alert("삭제되었습니다.");
-    location.href="/WishlistSelect.wi";
+    alert("찜 목록에서 삭제되었습니다.");
+    window.history.back();
     </script>
 </body>
 </html>

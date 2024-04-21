@@ -27,22 +27,27 @@
         <thead>
             <tr>
                 <th>상품 제목</th>
+                <th style="display: none;">상품 번호</th>
+                <th style="display: none;">회원 번호</th>
                 <th>찜 목록 추가일</th>
                 <th>비고 <button type="button" onclick = "deleteAll()">전체삭제</button></th>
             </tr>
         </thead>
         <tbody>
+
             
              <c:forEach var="wishlistDTO" items="${arrayList}">
              
              	<c:if test="${sessionScope.member_number eq wishlistDTO.member_number}">
              	   <tr>
 						<td>${wishlistDTO.product_title}</td>
+						<td style="display: none;" class="wishlist_product_number">${wishlistDTO.product_number}</td>
+						<td style="display: none;" class="wishlist_member_number">${wishlistDTO.member_number}</td>
 						<td>${wishlistDTO.wishlist_create}</td>
 						<td>
 						
 						<button type="button" onclick = "selectDetail('${wishlistDTO.wishlist_number}')">상세보기</button>
-						<button type="button" onclick = "deleteDetail('${wishlistDTO.wishlist_number}')">삭제하기</button>
+						<button type="button" onclick = "deleteDetail('${wishlistDTO.member_number}' , '${wishlistDTO.product_number}')">삭제하기</button>
 						<input type="hidden" name="wishlist_number" value="${wishlistDTO.wishlist_number}">
 						</td>
 					</tr>
@@ -61,8 +66,8 @@
 function selectDetail(wishlist_number) {
 	window.location.href = "./WishlistSelectDetail.wi?wishlist_number=" + wishlist_number;
 }
-function deleteDetail(wishlist_number) {
-	window.location.href = "./WishlistDelete.wi?wishlist_number=" + wishlist_number;
+function deleteDetail(member_number, product_number) {
+	window.location.href = "./WishlistDelete.wi?member_number=" + member_number + "&product_number=" + product_number;
 }
 function deleteAll() {
     if (confirm("정말로 전체 삭제하시겠습니까?")) {

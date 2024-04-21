@@ -17,16 +17,22 @@ private static final Log log = LogFactory.getLog(WishlistDeleteController.class)
 @Override
 public HandlerAdapter execute(HttpServletRequest request, HttpServletResponse response) {
 	log.info("WishlistDeleteController 실행");
-	int wishlist_number = Integer.parseInt(request.getParameter("wishlist_number"));
-	log.info(wishlist_number);
+	
+	int member_number = Integer.parseInt(request.getParameter("member_number"));
+	int product_number = Integer.parseInt(request.getParameter("product_number"));
+	
 	WishlistDTO wishlistDTO = new WishlistDTO();
-	wishlistDTO.setWishlist_number(wishlist_number);
+	wishlistDTO.setMember_number(member_number);
+	wishlistDTO.setProduct_number(product_number);
+	
 	WishlistDAO wishlistDAO = new WishlistDAO();
 	wishlistDTO = wishlistDAO.wishlistDelete(wishlistDTO);
 	log.info(wishlistDTO);
 	request.setAttribute("wishlistDTO", wishlistDTO);
+
 	HandlerAdapter handlerAdapter = new HandlerAdapter();
 	handlerAdapter.setPath("/WEB-INF/view/wishlist/wishlist_delete_view.jsp");
+
 	return handlerAdapter;
 }
 

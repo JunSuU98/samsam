@@ -107,10 +107,14 @@ public WishlistDTO wishlistSelect(WishlistDTO wishlistDTO) {
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
 			connection.setAutoCommit(false);
+
 			String sql = "delete from wishlist";
-			sql += " where wishlist_number = ?";
+			sql += " where member_number = ? and product_number = ?";
+
 			preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setInt(1, wishlistDTO.getWishlist_number());
+			preparedStatement.setInt(1, wishlistDTO.getMember_number());
+			preparedStatement.setInt(2, wishlistDTO.getProduct_number());
+			
 			int count = preparedStatement.executeUpdate();
 			if (count>0) {
 				connection.commit();
