@@ -46,7 +46,7 @@
 						<td>${wishlistDTO.wishlist_create}</td>
 						<td>
 						
-						<button type="button" onclick = "selectDetail('${wishlistDTO.wishlist_number}')">상세보기</button>
+						<button type="button" onclick = "selectDetail('${wishlistDTO.product_number}')">상세보기</button>
 						<button type="button" onclick = "deleteDetail('${wishlistDTO.member_number}' , '${wishlistDTO.product_number}')">삭제하기</button>
 						<input type="hidden" name="wishlist_number" value="${wishlistDTO.wishlist_number}">
 						</td>
@@ -63,9 +63,12 @@
     </script>
     </c:if>
 <script>
-function selectDetail(wishlist_number) {
-	window.location.href = "./WishlistSelectDetail.wi?wishlist_number=" + wishlist_number;
+
+function selectDetail(product_number) {
+	window.location.href = "/ProductSelectDetail.pr?product_number=" + product_number;
 }
+
+
 function deleteDetail(member_number, product_number) {
 	window.location.href = "./WishlistDelete.wi?member_number=" + member_number + "&product_number=" + product_number;
 }
