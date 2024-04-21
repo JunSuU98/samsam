@@ -166,14 +166,15 @@ public WishlistDTO wishlistSelect(WishlistDTO wishlistDTO) {
 	            wishlistDTO.setWishlist_create(now);
 	            
 	            String sql2 = "INSERT INTO wishlist(wishlist_number, product_title, product_number, member_number, wishlist_create) ";
-	            sql2 += "VALUES (?, ?, ?, ?, ?)";
+	            sql2 += "VALUES (wishlist_seq.NEXTVAL, ?, ?, ?, ?)";
 	            
 	            preparedStatement = connection.prepareStatement(sql2);
-	            preparedStatement.setInt(1, wishlistDTO.getWishlist_number());
-	            preparedStatement.setString(2, wishlistDTO.getProduct_title());
-	            preparedStatement.setInt(3, wishlistDTO.getProduct_number());
-	            preparedStatement.setInt(4, wishlistDTO.getMember_number());
-	            preparedStatement.setDate(5, new java.sql.Date(wishlistDTO.getWishlist_create().getTime()));
+
+	            preparedStatement.setString(1, wishlistDTO.getProduct_title());
+	            preparedStatement.setInt(2, wishlistDTO.getProduct_number());
+	            preparedStatement.setInt(3, wishlistDTO.getMember_number());
+	            preparedStatement.setDate(4, new java.sql.Date(wishlistDTO.getWishlist_create().getTime()));
+
 	            
 	            int count = preparedStatement.executeUpdate();
 	            if (count > 0) {

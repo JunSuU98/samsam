@@ -8,8 +8,8 @@
 </head>
 <body>
     <script type = "text/javascript">
-    alert("삭제되었습니다.")
-     location.href="./wishlistindex.jsp"
+    alert("삭제되었습니다.");
+    location.href="/WishlistSelect.wi";
     </script>
 </body>
 </html>

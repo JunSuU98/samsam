@@ -158,6 +158,7 @@ public class MemberDispatcherServlet extends HttpServlet {
 		}
 		
 		
+		
 		if(memberHandlerAdapter != null) {
 			if(memberHandlerAdapter.isRedirect()) {
 				response.sendRedirect(memberHandlerAdapter.getPath());

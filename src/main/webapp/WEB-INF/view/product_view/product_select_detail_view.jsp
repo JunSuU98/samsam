@@ -6,6 +6,39 @@
     <meta charset="UTF-8">
     <title>상세 상품정보</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <script type="text/javascript">
+    	function wishlistPost(member_number, product_number, product_title){
+    		let form = document.createElement('form');
+    		
+    		let member_number_input = document.createElement('input');
+    		member_number_input.setAttribute('type', 'hidden');
+    		member_number_input.setAttribute('name', 'member_number');
+    		member_number_input.setAttribute('value', member_number);
+    		
+    		let product_number_input = document.createElement('input');
+    		product_number_input.setAttribute('type', 'hidden');
+    		product_number_input.setAttribute('name', 'product_number');
+    		product_number_input.setAttribute('value', product_number);
+
+			let product_title_input = document.createElement('input');
+    		product_title_input.setAttribute('type', 'hidden');
+    		product_title_input.setAttribute('name', 'product_title');
+    		product_title_input.setAttribute('value', product_title);
+
+    		
+    		form.appendChild(member_number_input);
+    		form.appendChild(product_number_input);
+    		form.appendChild(product_title_input);
+    		
+    		form.setAttribute('method', 'post');
+    		form.setAttribute('action', '/WishlistInsert.wi');
+    		
+    		document.body.appendChild(form);
+    		form.submit();
+    	}
+    
+    </script>
 </head>
 <body>
 <header id="main-header" class="py-2 bg-dark text-white">
@@ -57,6 +90,14 @@
                                     상품 목록
                                 </a>
                             </div>
+
+							<div class="col-md-4">
+                                <button onclick="wishlistPost(${sessionScope.member_number}, ${productDTO.product_number}, '${productDTO.product_title}')" class="btn btn-primary btn-block">
+									찜하기
+                                </button>
+                            </div>
+
+
                             <div class="col-md-4">
                                 <a href="./ProductUpdate.pr?product_number=${productDTO.product_number}" class="btn btn-warning btn-block">
                                     상품 수정

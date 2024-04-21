@@ -48,6 +48,9 @@
 		  <button type="button" class="btn btn-secondary" onclick="location.href='./index.jsp'">
 			메인화면
 		  </button>
+		  <button type="button" class="btn btn-secondary" onclick="location.href='/WishlistSelect.wi'">
+		  	찜 목록
+		  </button>
 		  <button type="button" class="btn btn-secondary" onclick="location.href='/MemberUpdateView.me?member_number=${memberDTO.member_number}'">
 		  	내 정보 수정
 		  </button>
