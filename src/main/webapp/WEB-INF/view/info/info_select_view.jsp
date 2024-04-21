@@ -60,9 +60,13 @@
                 </tbody>
             </table>
         </div>
-      <div class="insertcontainer">
-       <a href="InfoInsert.in" class="add-notice-link">공지 작성</a>
-      </div>
+            
+      	<c:if test="${sessionScope.member_id eq 'admin'}">
+     		<div class="insertcontainer">
+			   <a href="InfoInsert.in" class="add-notice-link">공지 작성</a>
+		 	</div>
+      	</c:if>
+      
     </div>
 </section>
 </body>

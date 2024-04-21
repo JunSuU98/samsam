@@ -54,6 +54,17 @@
   	<servlet-name>ImgFrontController</servlet-name>
   	<url-pattern>*.im</url-pattern>
   </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>WishlistFrontController</servlet-name>
+  	<servlet-class>chan.wishlist.frontcontroller.WishlistDispatcherServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>WishlistFrontController</servlet-name>
+  	<url-pattern>*.wi</url-pattern>
+  </servlet-mapping>
+
 
 
   

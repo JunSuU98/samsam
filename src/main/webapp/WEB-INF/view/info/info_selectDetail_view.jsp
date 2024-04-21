@@ -32,10 +32,14 @@
                 <p class="info-text"> ${infoDTO.info_Content}</p>
                 <p class="info-date">등록 날짜 : ${infoDTO.info_Date.substring(0, 10)}</p>
             </div>
-            <div class="info-actions">
-                <a href="InfoUpdate.in?info_Number=${infoDTO.info_Number}" class="action-btn">공지 수정</a>
+                        
+            <c:if test="${sessionScope.member_id eq 'admin' }">
+              <div class="info-actions">
+              	<a href="InfoUpdate.in?info_Number=${infoDTO.info_Number}" class="action-btn">공지 수정</a>
                 <a href="InfoDelete.in?info_Number=${infoDTO.info_Number}" class="action-btn">공지 삭제</a>
-            </div>
+              </div>
+            </c:if>
+            
         </div>
     </div>
 </section>

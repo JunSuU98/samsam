@@ -57,10 +57,16 @@
 									</c:if>
 								</tbody>
 							</table>
-							<div>
-								<a href="./CSInsertView.cs" class="btn btn-success btn-block">
-									문의 입력 </a>
-							</div>
+														
+							<c:if test="${not empty sessionScope.member_id}">
+							
+								<div>
+									<a href="./CSInsertView.cs" class="btn btn-success btn-block">
+										문의 입력 </a>
+								</div>
+							
+							</c:if>
+							
 						</div>
 					</div>
 				</div>

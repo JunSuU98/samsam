@@ -60,13 +60,20 @@
 								</div>
 							</div>
 						</div>
-						<div class="card-footer">
-							<a href="./CSSelect.cs" class="btn btn-success">문의 목록</a> <a
-								href="./CSUpdateView.cs?cs_number=${csDTO.cs_number}"
-								class="btn btn-success">문의 수정</a> <a
-								href="./CSDeleteView.cs?cs_number=${csDTO.cs_number}"
-								class="btn btn-success">문의 삭제</a>
-						</div>
+
+						<a href="./CSSelect.cs" class="btn btn-success">문의 목록</a> 			
+
+						<c:if test="${not empty sessionScope.member_id}">
+							<div class="card-footer">
+								<a href="./CSUpdateView.cs?cs_number=${csDTO.cs_number}" class="btn btn-success">
+									문의 수정
+								</a> 
+								<a href="./CSDeleteView.cs?cs_number=${csDTO.cs_number}" class="btn btn-success">
+									문의 삭제
+								</a>
+							</div>
+						</c:if>
+						
 					</div>
 				</div>
 			</div>
