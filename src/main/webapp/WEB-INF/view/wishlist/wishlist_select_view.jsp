@@ -27,28 +27,28 @@
         <thead>
             <tr>
                 <th>상품 제목</th>
-                <th>상품 번호</th>
-                <th>회원 번호</th>
                 <th>찜 목록 추가일</th>
                 <th>비고 <button type="button" onclick = "deleteAll()">전체삭제</button></th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="wishlistDTO" items="${arrayList}">
-                <tr>
-
-                    <td>${wishlistDTO.product_title}</td>
-                    <td>${wishlistDTO.product_number}</td>
-                    <td>${wishlistDTO.member_number}</td>
-                    <td>${wishlistDTO.wishlist_create}</td>
-                    <td>
-                    
-                    <button type="button" onclick = "selectDetail('${wishlistDTO.wishlist_number}')">상세보기</button>
-                    <button type="button" onclick = "deleteDetail('${wishlistDTO.wishlist_number}')">삭제하기</button>
-					<input type="hidden" name="wishlist_number" value="${wishlistDTO.wishlist_number}">
-                    </td>
-                </tr>
-            </c:forEach>
+            
+             <c:forEach var="wishlistDTO" items="${arrayList}">
+             
+             	<c:if test="${sessionScope.member_number eq wishlistDTO.member_number}">
+             	   <tr>
+						<td>${wishlistDTO.product_title}</td>
+						<td>${wishlistDTO.wishlist_create}</td>
+						<td>
+						
+						<button type="button" onclick = "selectDetail('${wishlistDTO.wishlist_number}')">상세보기</button>
+						<button type="button" onclick = "deleteDetail('${wishlistDTO.wishlist_number}')">삭제하기</button>
+						<input type="hidden" name="wishlist_number" value="${wishlistDTO.wishlist_number}">
+						</td>
+					</tr>
+             	</c:if>
+			</c:forEach>
+            
         </tbody>
     </table>
     <c:if test="${empty arrayList}">
