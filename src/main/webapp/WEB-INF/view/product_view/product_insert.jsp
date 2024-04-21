@@ -4,6 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <title>상품 정보 입력</title>
+    
+    
+       <style>
+        /* 모달 스타일 */
+        #imgInsertModal {
+            display: none; /* 처음에는 모달을 숨김 */
+            position: fixed; /* 모달 위치를 고정 */
+            z-index: 1; /* 다른 요소 위에 나타나도록 함 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 전체 너비로 설정 */
+            height: 100%; /* 전체 높이로 설정 */
+            overflow: auto; /* 필요한 경우 스크롤 가능하도록 설정 */
+            background-color: rgba(0,0,0,0.7); /* 투명도가 있는 검은색 배경 */
+        }
+        #modalContent {
+            background-color: #fefefe;
+            margin: 15% auto; /* 상단에서 15% 떨어진 곳에 중앙 정렬 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 80%의 너비 */
+        }
+    </style> 
+    
+    
     <script type="text/javascript">
         function joinProduct() {
             var frm = document.join;
@@ -24,6 +49,8 @@
             }
             return false; 
         }
+        
+
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -72,8 +99,7 @@
                                 </div>
                       
                                 <div class="form-group">
-                                    <label for="product_img">상품 이미지</label>
-                                    <input type="file" name="product_img" id="product_img" class="form-control-file">
+                                	<button type="button" onclick="openModal()">상품 이미지 업로드</button>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary"> 등록 </button>
@@ -90,5 +116,25 @@
         </div>
     </div>
 </section>
+
+<section>
+	<%@ include file="/WEB-INF/view/image/img_insert.jsp" %>
+</section>
+
+<script type="text/javascript">
+
+	var modal = document.getElementById("imgInsertModal");
+
+	function openModal() {
+		modal.style.display = "block";
+	}
+	
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
 </body>
 </html>

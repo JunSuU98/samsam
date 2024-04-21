@@ -11,9 +11,9 @@
 <script src="./js/jquery.validate.min.js" type="text/javascript"></script>
 </head>
 <body>
-    <div class="container p-3 my-3 border">
+    <div id="imgInsertModal" class="p-3 my-3 border">
         <div class="row">
-            <div class="col-md-5">
+            <div id="modalContent" class="col-md-5">
                 <div class="card-body">
                     <form action="./ImgInsert.im" method="post" enctype="multipart/form-data" id="signupForm" onsubmit="return validateForm()">
                         <fieldset>
@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group ml-sm-2">
                                 <button type="submit" class="btn btn-primary btn-sm">완료</button>
-                                <button type="reset" class="btn btn-primary btn-sm">취소</button>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/ProductInsertView.pr'">취소</button>
                             </div>
                         </fieldset>
                     </form>
