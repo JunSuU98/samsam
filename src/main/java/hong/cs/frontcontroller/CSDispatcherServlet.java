@@ -17,6 +17,7 @@ import hong.cs.controller.CSDeleteContorller;
 import hong.cs.controller.CSInsertController;
 import hong.cs.controller.CSSelectController;
 import hong.cs.controller.CSSelectDetailController;
+import hong.cs.controller.CSSelectMineController;
 import hong.cs.controller.CSUpdateViewController;
 import hong.cs.controller.CSUpdateController;
 import hong.cs.handler.CSHandlerAdapter;
@@ -91,6 +92,13 @@ public class CSDispatcherServlet extends HttpServlet implements Servlet {
 			csController=new CSDeleteContorller();
 			csHandlerAdapter=csController.execute(request, response);
 			log.info("문의 삭제 확인 - "+csHandlerAdapter);
+		}
+		
+		else if (pathURL.equals("/CSSelectMine.cs")) {
+			csController = new CSSelectMineController();
+			csHandlerAdapter = csController.execute(request, response);
+			log.info("내 문의 확인 - " + csHandlerAdapter);
+			
 		}
 		
 
