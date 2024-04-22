@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("입력하신 ${productDTO.product_number}번의 부서 번호를 삭제하였습니다.");
+alert("상품을 삭제하였습니다.");
 location.href="./ProductSelect.pr";
 </script>
 </body>

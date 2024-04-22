@@ -39,10 +39,6 @@
 		
 	});
 	
-	$("input[id='member_id']").on("change", function(){
-		$("#id_check").val(0);
-	});
-
 </script>
 
 </head>
@@ -74,7 +70,7 @@
 			</div>
 
 			<button type="button" class="btn btn-primary" id="db_id_check">중복확인</button>
-			<input type="hidden" class="form-control" id="id_check" name="id_check">
+			<input type="hidden" class="form-control" id="id_check" name="id_check" value="0">
 
 		  </div>	
 		
@@ -126,13 +122,32 @@
 		  </script>
 
 		  <div class="col-auto">
-			<button type="submit" class="btn btn-primary mb-3">회원가입</button>
+			<button type="button" onclick="submitValid()" class="btn btn-primary mb-3">회원가입</button>
 			<button type="reset" class="btn btn-danger mb-3" onclick="window.history.back()">취소</button>
 		  </div> 
 		  
 		</form>
 
 	</main>
+	
+	<script type="text/javascript">
+	
+		var id_check_input = document.getElementById('id_check');
+	
+		function submitValid() {
+			if(id_check_input.value == 0){
+				alert("ID 중복검사를 해주세요");
+				return false;
+			} else {
+				document.getElementById("sign_up_form").submit();
+			}
+		}
+	
+		$("input[id='member_id']").on("change keyup paste", function(){
+			$("#id_check").val(0);
+		});
+
+	</script>
 
 </body>
 </html>
