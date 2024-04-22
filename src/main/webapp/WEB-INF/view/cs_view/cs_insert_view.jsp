@@ -55,6 +55,9 @@
 									</div>
 									<!-- 날짜 입력란을 숨겨진 필드로 설정 -->
 									<input type="hidden" name="cs_date" id="cs_date">
+									
+									<input type="hidden" name="member_number" id="member_number" value="${sessionScope.member_number}">
+									
 									<div class="form-group row">
 										<label for="cs_content" class="col-sm-3 col-form-label">문의
 											내용</label>

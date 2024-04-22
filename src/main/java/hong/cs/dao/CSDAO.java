@@ -70,17 +70,21 @@ public class CSDAO implements CSService {
 			Context context = new InitialContext();
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
-			String sql = "select cs_number, cs_title, cs_date, cs_content from ci";
+			
+			String sql = "select * from ci";
 			sql += " where cs_number=?";
 			log.info("SQL 확인 - " + sql);
+			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, cs_number);
 			resultSet = preparedStatement.executeQuery();
+			
 			while (resultSet.next()) {
 				csDTO.setCs_number(resultSet.getInt("cs_number"));
 				csDTO.setCs_title(resultSet.getString("cs_title"));
 				csDTO.setCs_date(resultSet.getString("cs_date"));
 				csDTO.setCs_content(resultSet.getString("cs_content"));
+				csDTO.setMember_number(resultSet.getInt("member_number"));
 			}
 		} catch (Exception e) {
 			log.info("특정 부서 조회 실패 - " + e);
@@ -105,14 +109,16 @@ public class CSDAO implements CSService {
 			Context context = new InitialContext();
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
-			String sql = "insert into ci (cs_number, cs_title, cs_date, cs_content)";
-			sql += " values(number_seq.nextval,?,?,?)";
+			String sql = "insert into ci (cs_number, cs_title, cs_date, cs_content, member_number)";
+			sql += " values(number_seq.nextval,?,?,?,?)";
 			log.info("SQL 확인 - " + sql);
 			preparedStatement = connection.prepareStatement(sql);
 //			preparedStatement.setInt(1, csDTO.getCs_number()); cf) 시퀀스 적용
 			preparedStatement.setString(1, csDTO.getCs_title());
 			preparedStatement.setString(2, csDTO.getCs_date());
 			preparedStatement.setString(3, csDTO.getCs_content());
+			preparedStatement.setInt(4, csDTO.getMember_number());
+			
 			int count = preparedStatement.executeUpdate();
 			if (count > 0) {
 				connection.commit();

@@ -5,6 +5,7 @@ public class CSDTO {
 	private String cs_title;
 	private String cs_date;
 	private String cs_content;
+	private int member_number;
 
 	public int getCs_number() {
 		return cs_number;
@@ -37,10 +38,22 @@ public class CSDTO {
 	public void setCs_content(String cs_content) {
 		this.cs_content = cs_content;
 	}
+	
+	
+
+	public int getMember_number() {
+		return member_number;
+	}
+
+	public void setMember_number(int member_number) {
+		this.member_number = member_number;
+	}
 
 	@Override
 	public String toString() {
 		return "CSDTO [cs_number=" + cs_number + ", cs_title=" + cs_title + ", cs_date=" + cs_date + ", cs_content="
-				+ cs_content + "]";
+				+ cs_content + ", member_number=" + member_number + "]";
 	}
+
+
 }

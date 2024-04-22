@@ -63,7 +63,7 @@
 
 						<a href="./CSSelect.cs" class="btn btn-success">문의 목록</a> 			
 
-						<c:if test="${not empty sessionScope.member_id}">
+						<c:if test="${sessionScope.member_number eq csDTO.member_number}">
 							<div class="card-footer">
 								<a href="./CSUpdateView.cs?cs_number=${csDTO.cs_number}" class="btn btn-success">
 									문의 수정

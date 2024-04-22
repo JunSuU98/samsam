@@ -26,6 +26,8 @@ public class CSInsertController implements CSController {
 		log.info(cs_date);
 		String cs_content = request.getParameter("cs_content");
 		log.info(cs_content);
+		
+		int member_number = Integer.parseInt(request.getParameter("member_number"));
 
 		CSDAO csDAO = new CSDAO();
 		CSDTO csDTO = new CSDTO();
@@ -39,6 +41,7 @@ public class CSInsertController implements CSController {
 		csDTO.setCs_title(cs_title);
 		csDTO.setCs_date(cs_date);
 		csDTO.setCs_content(cs_content);
+		csDTO.setMember_number(member_number);
 
 		csDTO = csDAO.csInsert(csDTO);
 		log.info(csDTO);

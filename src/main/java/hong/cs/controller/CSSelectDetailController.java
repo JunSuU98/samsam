@@ -18,13 +18,17 @@ public class CSSelectDetailController implements CSController {
 	public CSHandlerAdapter execute(HttpServletRequest request, HttpServletResponse response) {
 		int cs_number = Integer.parseInt(request.getParameter("cs_number"));
 		log.info(cs_number);
+		
 		CSDAO csDAO = new CSDAO();
 		CSDTO csDTO = new CSDTO();
+		
 		csDTO = csDAO.csSelectDetail(cs_number);
 		log.info(csDTO);
+		
 		request.setAttribute("csDTO", csDTO);
 		CSHandlerAdapter csHandlerAdapter = new CSHandlerAdapter();
 		log.info("특정 문의 조회");
+		
 		csHandlerAdapter.setPath("/WEB-INF/view/cs_view/cs_select_detail_view.jsp");
 		return csHandlerAdapter;
 	}

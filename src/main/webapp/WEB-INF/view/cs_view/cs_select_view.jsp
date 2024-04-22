@@ -66,7 +66,11 @@
 								</div>
 							
 							</c:if>
-							
+							<div>
+								<a href="/ProductSelect.pr" class="btn btn-success btn-block">
+									메인 화면
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
