@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>내 판매글 조회</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header id="main-header" class="py-2 bg-dark text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>상품</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<section id="department">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5>상품 목록</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="thead-light">
+                                <tr class="text-center">
+                                    <th>상품 이름</th>
+                                    <th>상품 가격</th>
+                                    <th>상품 업로드 날짜</th>
+                                    <th>상품 거래상태 </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach var="arrayList" items="${arrayList}">
+                                    <tr class="text-center">
+                                        <td>${arrayList.product_title}</td>
+                                        <td>${arrayList.product_price}</td>
+                                        <td>${arrayList.product_upload}</td>
+                                        <td>${arrayList.product_status}</td>
+                                        <td>
+                                            <a href="./ProductSelectDetail.pr?product_number=${arrayList.product_number}" class="btn btn-outline-info">
+                                                상품 상세 보기
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                <c:if test="${empty arrayList}">
+                                    <tr>
+                                        <td colspan="4">등록된 상품이 없습니다.</td>
+                                    </tr>
+                                </c:if>
+                            </tbody>
+                        </table>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+	<button type="button" class="btn btn-primary" onclick="location.href='/InfoSelect.in'">
+		공지사항
+	</button>
+	
+	<button type="button" class="btn btn-primary" onclick="location.href='/CSSelect.cs'">
+		문의사항
+	</button>
+
+
+
+</section>
+</body>
+</html>

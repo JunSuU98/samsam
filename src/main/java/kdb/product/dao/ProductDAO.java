@@ -321,4 +321,63 @@ public class ProductDAO implements ProductService {
 		return img_url;
 	}
 
+	public ArrayList<ProductDTO> productSelectMine(int member_number){
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		ArrayList<ProductDTO>arrayList = new ArrayList<ProductDTO>();
+		
+		try {
+			Context context = new InitialContext();
+			DataSource dataSource = (DataSource)context.lookup("java:comp/env/jdbc");
+			connection =dataSource.getConnection();
+			
+			String sql="select * from PRODUCT ";
+			sql += "where member_number = ? ";
+			log.info("SQL 확인 - " + sql);
+			
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, member_number);
+			
+			
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				ProductDTO productDTO = new ProductDTO();
+				productDTO.setProduct_number(resultSet.getInt("PRODUCT_NUMBER"));
+				productDTO.setProduct_upload(resultSet.getString("PRODUCT_UPLOAD"));
+				productDTO.setProduct_update(resultSet.getString("PRODUCT_UPDATE"));
+				productDTO.setProduct_title(resultSet.getString("PRODUCT_TITLE"));
+				productDTO.setProduct_price(resultSet.getInt("PRODUCT_PRICE"));
+				productDTO.setProduct_content(resultSet.getString("PRODUCT_CONTENT"));
+				productDTO.setProduct_status(resultSet.getString("PRODUCT_STATUS"));
+				productDTO.setImg_index(resultSet.getInt("img_index"));
+				
+				log.info(productDTO);
+				
+				arrayList.add(productDTO);
+				
+				resultSet.getRow();
+				
+				if (resultSet.getRow() ==0) {
+					log.info("등록한 부서가 없습니다. 부서를 등록해 주세요");
+				}
+				
+			}
+		} catch (Exception e) {
+			log.info("전체 부서 조회 실패 - " + e);
+				}finally {
+					try {
+						resultSet.close();
+						preparedStatement.close();
+						connection.close();
+					} catch (Exception e2) {
+						e2.printStackTrace();
+					}
+				}
+		
+		return arrayList;
+	}
 }

@@ -18,6 +18,7 @@ import kdb.product.controller.ProductImgIndexController;
 import kdb.product.controller.ProductInsertController;
 import kdb.product.controller.ProductSelectController;
 import kdb.product.controller.ProductSelectDetailController;
+import kdb.product.controller.ProductSelectMineController;
 import kdb.product.controller.ProductUpdateController;
 import kdb.product.controller.ProductUpdateViewController;
 import kdb.product.hander.ProductHandlerAdapter;
@@ -95,7 +96,12 @@ public class ProductDispatchServlet extends HttpServlet implements Servlet {
 			log.info("전체 이미지 인덱스 확인 - " + productHandlerAdapter);
 		}
 		
-		
+		else if(pathURL.equals("/ProductSelectMine.pr")) {
+			controller = new ProductSelectMineController();
+			productHandlerAdapter = controller.execute(request, response);
+			
+			log.info("내 상품 뷰 확인 - " + productHandlerAdapter);
+		}
 		
 		
 		

@@ -51,6 +51,9 @@
 		  <button type="button" class="btn btn-secondary" onclick="location.href='/WishlistSelect.wi'">
 		  	찜 목록
 		  </button>
+		  <button type="button" class="btn btn-secondary" onclick="location.href='/ProductSelectMine.pr?member_number=${memberDTO.member_number}'">
+		  	내 판매글
+		  </button>
 		  <button type="button" class="btn btn-secondary" onclick="location.href='/MemberUpdateView.me?member_number=${memberDTO.member_number}'">
 		  	내 정보 수정
 		  </button>

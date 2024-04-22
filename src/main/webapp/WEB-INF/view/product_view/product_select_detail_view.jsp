@@ -151,7 +151,7 @@
                                     <td>${productDTO.product_price}</td>
                                     <td>${productDTO.product_content}</td>
                                     <td>
-                                    	<img alt="대체 텍스트" src="/ImgView.im?img_url=${img_url}">
+                                    	<img alt="대체 텍스트" src="/ImgView.im?img_url=${img_url}" style="width: 300px; height: 300px">
                                     </td>
                                     <td>${productDTO.product_status}</td>
                                 </tr>
