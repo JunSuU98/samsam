@@ -172,19 +172,30 @@
 
                             </div>
 
-							<c:if test="${not empty sessionScope.member_number}">
-							    <div class="col-md-4">
-                                	<a href="./ProductUpdate.pr?product_number=${productDTO.product_number}" class="btn btn-warning btn-block">
-                                    	상품 수정
-                                	</a>
-                            	</div>
-                            	<div class="col-md-4">
-                                	<a href="./ProductDeleteView.pr?product_number=${productDTO.product_number}" class="btn btn-danger btn-block">
-                                    	상품 삭제
-                                	</a>
-                            	</div>
+							<c:choose>
+								<c:when test="${sessionScope.member_number eq productDTO.member_number}">
+									<div class="col-md-4">
+                                		<a href="./ProductUpdate.pr?product_number=${productDTO.product_number}" class="btn btn-warning btn-block">
+                                    		상품 수정
+                                		</a>
+                            		</div>
+                            		<div class="col-md-4">
+                                		<a href="./ProductDeleteView.pr?product_number=${productDTO.product_number}" class="btn btn-danger btn-block">
+                                    		상품 삭제
+                                		</a>
+                            		</div>
+								</c:when>
+								
+								<c:when test="${sessionScope.member_id eq 'admin'}">
+								    <div class="col-md-4">
+                                		<a href="./ProductDeleteView.pr?product_number=${productDTO.product_number}" class="btn btn-danger btn-block">
+                                    		상품 삭제
+                                		</a>
+                            		</div>
+								</c:when>
 							
-							</c:if>
+							
+							</c:choose>
 
 
                         </div>

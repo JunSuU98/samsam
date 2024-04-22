@@ -40,7 +40,7 @@
 				</c:when>
 				<c:otherwise>
 					<!-- 일반 사용자로 로그인한 상태의 처리 -->
-					<h2>일반 회원 로그인 성공!!</h2>
+					<h2>안녕하세요 ${sessionScope.member_name} 님</h2>
 					
 					<button type="button" class="btn btn-primary" onclick="location.href='/MemberSelectDetail.me?member_number=${sessionScope.member_number}'">
 						마이페이지

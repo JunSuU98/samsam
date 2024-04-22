@@ -69,9 +69,9 @@ public class ProductDAO implements ProductService {
 
 	@Override
 	public ProductDTO productSelect(int product_number) {
-		Connection connection =null;
-		PreparedStatement preparedStatement =null;
-		ResultSet resultSet=null;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
 		ProductDTO productDTO = new ProductDTO();
 		try {
 			Context context=new InitialContext();
@@ -95,7 +95,7 @@ public class ProductDAO implements ProductService {
 				productDTO.setProduct_content(resultSet.getString("product_content"));
 				productDTO.setProduct_status(resultSet.getString("product_status"));
 				productDTO.setImg_index(resultSet.getInt("img_index"));
-				System.out.println("resultSet img_index = " + resultSet.getInt("img_index"));
+				productDTO.setMember_number(resultSet.getInt("member_number"));
 			}
 		} catch (Exception e) {
 			log.info("특정 부서 조회 실패 - " + e);
