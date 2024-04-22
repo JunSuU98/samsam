@@ -32,6 +32,10 @@
 					<button type="button" class="btn btn-primary" onclick="location.href='/MemberSelect.me'">
 						전체회원조회
 					</button>
+					
+					<button type="button" class="btn btn-primary" onclick="location.href='/ImgSelect.im'">
+						전체 이미지 조회
+					</button>
 
 					<button type="button" class="btn btn-primary" onclick="location.href='/Logout.me'">
 						로그아웃

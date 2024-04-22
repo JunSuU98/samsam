@@ -67,14 +67,16 @@
                                 </c:if>
                             </tbody>
                         </table>
-                        <div>
-                            <a href="./ImgInsertView.im" class="btn btn-success btn-block">이미지 업로드</a>
-                        </div>
+
                     </div>
                 </div>
             </div>
 
         </div>
+    </section>
+    
+    <section>
+    	<button type="button" onclick="location.href='/ProductSelect.pr'" class="btn btn-primary">메인화면</button>
     </section>
 </body>
 </html>
