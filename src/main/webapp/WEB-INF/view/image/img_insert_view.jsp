@@ -10,7 +10,8 @@
 <body>
 	<script type="text/javascript">
 		alert("이미지가 등록됐습니다.");
-		location.href = "./ImgSelect.im";
+		sessionStorage.setItem('product_index', ${product_index});
+		window.history.back();
 	</script>
 </body>
 </html>

@@ -68,10 +68,10 @@ public class ImgInsertController implements ImgController {
         imgDTO = imgDao.imgInsert(imgDTO);
         log.info(imgDTO);
         request.setAttribute("imgDTO", imgDTO);
+        request.setAttribute("product_index", imgDTO.getProduct_index());
         log.info("이미지 정보 등록");
 
         ImgHandlerAdapter imgHandlerAdapter = new ImgHandlerAdapter();
-
         imgHandlerAdapter.setPath("/WEB-INF/view/image/img_insert_view.jsp");
 
         return imgHandlerAdapter;

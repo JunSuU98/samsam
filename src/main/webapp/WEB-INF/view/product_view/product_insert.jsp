@@ -100,7 +100,7 @@
                                 </div>
                                 
                                 <div class="form-group">
-                                    <input type="hidden" name="img_index" id="img_index" class="form-control form-control-sm">
+                                    <input type="hidden" name="img_index" id="img_index" class="form-control form-control-sm" value="${product_index}">
                                 </div>
                       
                                 <div class="form-group">
@@ -132,30 +132,8 @@
 
 	function openModal() {
 		modal.style.display = "block";
-	}
-	
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-    
-    
-    function generateUniqueRandomNumber() {
-        let numbers = [];
-        
-        let randomNumber = Math.floor(Math.random() * 10);
-        
-        while(numbers.includes(randomNumber)){
-        	randomNumber = Math.floor(Math.random() * 10);
-        }
-
-        return randomNumber;
-    }
-
-    let uniqueNumber = generateUniqueRandomNumber();
-    console.log(uniqueNumber);
-    
+		
+		
    		// 서버로부터 기존에 사용되었던 PRODUCT 테이블의 IMG_INDEX 를 모두 가져와서 겹치는게 있다면 새롭게 랜덤한 숫자를 생성한다
       	$.ajax({
       		url: "/ProductSelectImgIndex.pr",
@@ -171,7 +149,6 @@
       	        	randomNumber = Math.floor(Math.random() * 10);
       	        }
       	        
-      	        document.getElementById('img_index').value = randomNumber;
       	        document.getElementById('product_index').value = randomNumber;
 
       			
@@ -182,6 +159,26 @@
      			console.log("error - " + error)
      		}
       	});
+   		
+
+	}
+	
+	// 이전 페이지에서 세션 스토리지의 값을 가져온다
+  	var img_index = sessionStorage.getItem('product_index');
+  	// 값이 있을 경우 입력란에 채운다
+  	if(img_index !== null) {
+  	    document.getElementById('img_index').value = img_index;
+  	}
+	
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+    
+ 
+    
+
     	
   
 
