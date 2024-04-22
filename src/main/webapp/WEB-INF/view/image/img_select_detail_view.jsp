@@ -57,9 +57,7 @@
                                 <div class="col-md-4">
                                     <a href="./ImgSelect.im" class="btn btn-primary btn-block">이미지 목록 </a>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="./ImgUpdate.im?img_number=${imgDTO.img_number}" class="btn btn-warning btn-block"> 이미지 수정 </a>
-                                </div>
+
                                 <div class="col-md-4">
                                     <a href="./ImgDelete.im?img_number=${imgDTO.img_number}" class="btn btn-warning btn-block"> 이미지 삭제 </a>
                                 </div>

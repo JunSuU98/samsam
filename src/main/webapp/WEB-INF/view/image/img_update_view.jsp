@@ -8,9 +8,10 @@
 </head>
 <body>
 <script type="text/javascript">
-alert("입력하신 ${imgDTO.img_number}번의 이미지 번호를 수정하였습니다.");
+	alert("이미지를 수정하였습니다.");
 
-location.href = "./ImgSelect.im";
+	//location.href = "./ImgSelect.im";
+	window.history.back();
 </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <script src="./js/jquery.validate.min.js" type="text/javascript"></script>
 </head>
 <body>
-    <div id="imgInsertModal" class="p-3 my-3 border">
+    <div id="imgUpdateModal" class="p-3 my-3 border">
         <div class="row">
             <div id="modalContent" class="col-md-5">
                 <div class="card-body">
@@ -20,7 +20,7 @@
                         
                         	<div>
                         		<p>기존 이미지</p>
-                        		<img alt="대체 텍스트" src="/ImgView.im?img_url=${imgDTO.img_url}" style="width: 200px; height: 200px;">
+                        		<img id="prevImg" alt="대체 텍스트" src="/ImgView.im?img_url=${imgDTO.img_url}" style="width: 200px; height: 200px;">
                         	
                         	</div>
                         
@@ -40,7 +40,7 @@
     
                             <div class="form-group row">
                                 <div class="ml-sm-4">
-                                    <input type="hidden" name="img_update" id="img_update" class="form-control-file">
+                                    <input id="img_update_input" type="hidden" name="img_update" id="img_update" class="form-control-file">
                                     <script type="text/javascript">
                                         document.getElementById('img_update').value = new Date().toISOString().split('T')[0];
                                     </script>
@@ -52,7 +52,7 @@
                                 </div>
                             </div>
                             
-                            <input type="hidden" name="img_number" id="img_number" value="${imgDTO.img_number}">
+                            <input id="img_number_input" type="hidden" name="img_number" id="img_number" value="${imgDTO.img_number}">
                             
                             <div class="form-group ml-sm-2">
                                 <button type="submit" class="btn btn-primary btn-sm">완료</button>

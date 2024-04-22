@@ -1,10 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>상품 정보 수정</title>
+    
+    <style>
+        /* 모달 스타일 */
+        #imgUpdateModal {
+            display: none; /* 처음에는 모달을 숨김 */
+            position: fixed; /* 모달 위치를 고정 */
+            z-index: 1; /* 다른 요소 위에 나타나도록 함 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 전체 너비로 설정 */
+            height: 100%; /* 전체 높이로 설정 */
+            overflow: auto; /* 필요한 경우 스크롤 가능하도록 설정 */
+            background-color: rgba(0,0,0,0.7); /* 투명도가 있는 검은색 배경 */
+        }
+        #modalContent {
+            background-color: #fefefe;
+            margin: 15% auto; /* 상단에서 15% 떨어진 곳에 중앙 정렬 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 80%의 너비 */
+        }
+    </style> 
+    
+    
+    
+    
     <script type="text/javascript">
         function joinProduct() {
             var frm = document.getElementById('sign_dept');
@@ -25,7 +52,7 @@
                 alert("상품내용을 입력하세요.");
                 return false;
             }
-            if (confirm("상품 등록을 하시겠습니까?")) {
+            if (confirm("상품을 수정 하시겠습니까?")) {
                 return true;
             }
             return false;
@@ -69,26 +96,28 @@
                                                value="${productDTO.product_price}">
                                     </div>
                                 </div>
+                                
                                 <div class="form-group row">
-    <label for="product_status" class="ml-sm-3 col-form-label">상품 상태</label>
-    <div class="ml-sm-3">
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="product_status" id="status_reservation" value="예약">
+   									 <label for="product_status" class="ml-sm-3 col-form-label">상품 상태</label>
+  									 <div class="ml-sm-3">
+        								<div class="form-check form-check-inline">
+            								<input class="form-check-input" type="radio" name="product_status" id="status_reservation" value="예약">
                 
-            <label class="form-check-label" for="status_reservation">예약</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="product_status" id="status_sale" value="판매중">
+            								<label class="form-check-label" for="status_reservation">예약</label>
+       									</div>
+      									<div class="form-check form-check-inline">
+           									<input class="form-check-input" type="radio" name="product_status" id="status_sale" value="판매중">
                   
-            <label class="form-check-label" for="status_sale">판매중</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="product_status" id="status_complete" value="완료">
+            								<label class="form-check-label" for="status_sale">판매중</label>
+        								</div>
+        								<div class="form-check form-check-inline">
+           									<input class="form-check-input" type="radio" name="product_status" id="status_complete" value="완료">
            
-            <label class="form-check-label" for="status_complete">완료</label>
-        </div>
-    </div>
-</div>
+            								<label class="form-check-label" for="status_complete">완료</label>
+        								</div>
+   									 </div>
+								</div>
+
                                 <div class="form-group row">
                                     <label for="product_content" class="ml-sm-3 col-form-label">상품 내용</label>
                                     <div class="ml-sm-3">
@@ -98,12 +127,19 @@
                                 </div>        
                                                
                                 <div class="form-group row">
-                                    <label for="product_number" class="ml-sm-3 col-form-label">상품 번호</label>
                                     <div class="ml-sm-3">
-                                        <input type="text" name="product_number" id="product_number" class="form-control form-control-sm"
+                                        <input type="hidden" name="product_number" id="product_number" class="form-control form-control-sm"
                                                value="${param.product_number}" readonly>
                                     </div>
                                 </div>
+                                
+                                
+                                <div>
+                                	<p>기존 이미지</p>
+                                	<img alt="대체 텍스트" src="/ImgView.im?img_url=${img_url}" onclick="openModal()">
+                                </div>
+                                
+         
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-secondary">등록</button>
                                  <button type="reset" class="btn btn-secondary" onclick="location.href='./ProductSelect.pr'">취소</button>
@@ -114,9 +150,7 @@
                             <div class="col-md-4">
                                 <a href="./ProductSelect.pr" class="btn btn-primary btn-block">상품 목록</a>
                             </div>
-                            <div class="col-md-4">
-                                <a href="./ProductInsertView.pr" class="btn btn-success btn-block">상품 등록</a>
-                            </div>
+ 
                             <div class="col-md-4">
                                 <a href="./ProductDeleteView.pr?product_number=${param.product_number}" class="btn btn-danger btn-block">상품 삭제</a>
                             </div>
@@ -126,6 +160,36 @@
             </div>
         </div>
     </div>
+    
 </section>
+
+	
+
+<section>
+	<%@ include file="/WEB-INF/view/image/img_update.jsp" %>
+</section>
+
+<script type="text/javascript">
+	var modal = document.getElementById("imgUpdateModal");
+	var prevImgInput = document.getElementById("prevImg");
+	
+	var img_update_input = document.getElementById("img_update_input");
+	var img_number_input = document.getElementById("img_number_input");
+	
+	function openModal() {
+		modal.style.display = "block";
+		prevImgInput.src = "/ImgView.im?img_url=${img_url}";
+		
+		img_update_input.value = new Date().toISOString().split('T')[0];
+		img_number_input.value = ${img_number};
+	}
+	
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
+
 </body>
 </html>

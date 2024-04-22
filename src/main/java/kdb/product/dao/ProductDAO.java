@@ -320,6 +320,44 @@ public class ProductDAO implements ProductService {
 		
 		return img_url;
 	}
+	
+	public int productSelectImgNumber(int img_index) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		int img_number = 0;
+		
+		try {
+			Context context=new InitialContext();
+			DataSource dataSource=(DataSource)context.lookup("java:comp/env/jdbc");
+			connection= dataSource.getConnection();
+			
+	        String sql = "SELECT IMG_NUMBER FROM IMG WHERE PRODUCT_INDEX = ?";
+	        
+	        preparedStatement = connection.prepareStatement(sql);
+	        preparedStatement.setInt(1, img_index);
+	        
+	        resultSet = preparedStatement.executeQuery();
+						
+			while (resultSet.next()) {
+				img_number = resultSet.getInt("img_number");
+			}
+		} catch (Exception e) {
+			log.info("특정 img_url 조회 실패 - " + e);
+		}finally {
+			try {
+				resultSet.close( );
+				preparedStatement.close( );
+				connection.close( );
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		return img_number;
+	}
 
 	public ArrayList<ProductDTO> productSelectMine(int member_number){
 		
