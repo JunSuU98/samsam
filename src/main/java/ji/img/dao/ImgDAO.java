@@ -34,7 +34,7 @@ public class ImgDAO implements ImgService{
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
 			
-			String sql = "select img_number, img_upload, img_update, img_url from img";
+			String sql = "select * from img";
 			log.info("SQL 확인 - " + sql);
 			preparedStatement = connection.prepareStatement(sql);
 			
@@ -166,7 +166,7 @@ public class ImgDAO implements ImgService{
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
 			
-			String sql = "update img set img_update = ?, img_url = ? ";
+			String sql = "update img set img_update = TO_DATE(?, 'YYYY-MM-DD'), img_url = ? ";
 			sql += " where img_number = ?";
 			log.info("SQL 확인 - " + sql);
 			
