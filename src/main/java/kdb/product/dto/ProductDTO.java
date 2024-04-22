@@ -9,6 +9,8 @@ public class ProductDTO {
 	private String product_content;
 	private String product_status;
 	private int img_index;
+	private int member_number;
+	
 	public int getProduct_number() {
 		return product_number;
 	}
@@ -57,13 +59,24 @@ public class ProductDTO {
 	public void setProduct_status(String product_status) {
 		this.product_status = product_status;
 	}
+	
+	
+	
+	public int getMember_number() {
+		return member_number;
+	}
+	public void setMember_number(int member_number) {
+		this.member_number = member_number;
+	}
+	
 	@Override
 	public String toString() {
 		return "ProductDTO [product_number=" + product_number + ", product_upload=" + product_upload
 				+ ", product_update=" + product_update + ", product_title=" + product_title + ", product_price="
 				+ product_price + ", product_content=" + product_content + ", product_status=" + product_status
-				+ ", img_index=" + img_index + "]";
+				+ ", img_index=" + img_index + ", member_number=" + member_number + "]";
 	}
 
+	
 	
 }

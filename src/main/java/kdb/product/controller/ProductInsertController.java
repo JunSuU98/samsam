@@ -30,6 +30,8 @@ public class ProductInsertController implements Controller {
 		
 		int img_index = Integer.parseInt(request.getParameter("img_index"));
 		
+		int member_number = Integer.parseInt(request.getParameter("member_number"));
+		
 		ProductDAO productDAO= new ProductDAO();
 		ProductDTO productDTO= new ProductDTO();
 		
@@ -46,9 +48,10 @@ public class ProductInsertController implements Controller {
 		productDTO.setProduct_content(product_content);
 		productDTO.setProduct_status(product_status);
 		productDTO.setImg_index(img_index);
+		productDTO.setMember_number(member_number);
 		
 		
-		productDTO =productDAO.productInsert(productDTO);
+		productDTO = productDAO.productInsert(productDTO);
 		
 		request.setAttribute("productDTO", productDTO);
 		ProductHandlerAdapter productHandlerAdapter =new ProductHandlerAdapter();

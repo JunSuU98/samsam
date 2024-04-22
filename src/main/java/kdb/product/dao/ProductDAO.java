@@ -120,15 +120,18 @@ public class ProductDAO implements ProductService {
 	        DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 	        connection = dataSource.getConnection();
 	        connection.setAutoCommit(false);
-	        String sql = "INSERT INTO PRODUCT(product_number, product_upload, product_update, product_title, product_price, product_content, product_status, img_index) ";
-	        sql += "VALUES(product_seq.NEXTVAL, sysdate, sysdate, ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO PRODUCT(product_number, product_upload, product_update, product_title, product_price, product_content, product_status, img_index, member_number) ";
+	        sql += "VALUES(product_seq.NEXTVAL, sysdate, sysdate, ?, ?, ?, ?, ?, ?)";
 	        log.info("SQL 확인 - " + sql);
+	       
 	        preparedStatement = connection.prepareStatement(sql);
 	        preparedStatement.setString(1, productDTO.getProduct_title());
 	        preparedStatement.setInt(2, productDTO.getProduct_price());
 	        preparedStatement.setString(3, productDTO.getProduct_content());
 	        preparedStatement.setString(4, productDTO.getProduct_status());
 	        preparedStatement.setInt(5, productDTO.getImg_index());
+	        preparedStatement.setInt(6, productDTO.getMember_number());
+	        
 	       
 	        int count = preparedStatement.executeUpdate();
 	        if (count > 0) {

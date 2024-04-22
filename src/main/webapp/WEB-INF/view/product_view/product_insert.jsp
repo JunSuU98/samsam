@@ -104,6 +104,10 @@
                                 </div>
                       
                                 <div class="form-group">
+                                    <input type="hidden" name="member_number" id="member_number" class="form-control form-control-sm" value="${sessionScope.member_number}">
+                                </div>
+                      
+                                <div class="form-group">
                                 	<button type="button" onclick="openModal()">상품 이미지 업로드</button>
                                 </div>
                                 <div class="form-group">

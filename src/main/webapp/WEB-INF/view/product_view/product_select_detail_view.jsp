@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -170,17 +172,21 @@
 
                             </div>
 
+							<c:if test="${not empty sessionScope.member_number}">
+							    <div class="col-md-4">
+                                	<a href="./ProductUpdate.pr?product_number=${productDTO.product_number}" class="btn btn-warning btn-block">
+                                    	상품 수정
+                                	</a>
+                            	</div>
+                            	<div class="col-md-4">
+                                	<a href="./ProductDeleteView.pr?product_number=${productDTO.product_number}" class="btn btn-danger btn-block">
+                                    	상품 삭제
+                                	</a>
+                            	</div>
+							
+							</c:if>
 
-                            <div class="col-md-4">
-                                <a href="./ProductUpdate.pr?product_number=${productDTO.product_number}" class="btn btn-warning btn-block">
-                                    상품 수정
-                                </a>
-                            </div>
-                            <div class="col-md-4">
-                                <a href="./ProductDeleteView.pr?product_number=${productDTO.product_number}" class="btn btn-danger btn-block">
-                                    상품 삭제
-                                </a>
-                            </div>
+
                         </div>
                     </div>
                 </div>

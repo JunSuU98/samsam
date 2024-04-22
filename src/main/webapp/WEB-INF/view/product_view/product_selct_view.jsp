@@ -111,9 +111,17 @@
                                 </c:if>
                             </tbody>
                         </table>
-                        <div>
-                            <a href="./ProductInsertView.pr" class="btn btn-success btn-block">상품 등록</a>
-                        </div>
+
+                        
+                        <c:if test="${not empty sessionScope.member_number}">
+                            <div>
+                            	<a href="./ProductInsertView.pr" class="btn btn-success btn-block">상품 등록</a>
+                        	</div>
+                        </c:if>
+                        
+                        
+                        
+                        
                     </div>
                 </div>
             </div>

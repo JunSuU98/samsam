@@ -25,10 +25,7 @@ public class ProductSelectDetailController implements Controller {
 		
 		request.setAttribute("productDTO", productDTO);
 		
-		
 		String img_url = productDAO.productSelectImgUrl(productDTO.getImg_index());
-		System.out.println("productDTO.getImg_index() - " + productDTO.getImg_index());
-		System.out.println("Product Select Controller img url - " + img_url);
 		request.setAttribute("img_url", img_url);
 		
 		ProductHandlerAdapter productHandlerAdapter = new ProductHandlerAdapter();
