@@ -136,6 +136,7 @@
                                     <th>상품 제목</th>
                                     <th>상품 가격</th>
                                     <th>상품 내용</th>
+                                    <th>상품 이미지</th>
                                     <th>상품 상태</th>
                                 </tr>
                             </thead>
@@ -147,6 +148,9 @@
                                     <td>${productDTO.product_title}</td>
                                     <td>${productDTO.product_price}</td>
                                     <td>${productDTO.product_content}</td>
+                                    <td>
+                                    	<img alt="대체 텍스트" src="/ImgView.im?img_url=${img_url}">
+                                    </td>
                                     <td>${productDTO.product_status}</td>
                                 </tr>
                             </tbody>

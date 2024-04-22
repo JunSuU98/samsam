@@ -32,8 +32,9 @@ public class ProductDAO implements ProductService {
 		log.info("SQL 확인 - " + sql);
 		preparedStatement =connection.prepareStatement(sql);
 		resultSet =preparedStatement.executeQuery();
+
 		while (resultSet.next()) {
-			ProductDTO productDTO =new ProductDTO();
+			ProductDTO productDTO = new ProductDTO();
 			productDTO.setProduct_number(resultSet.getInt("PRODUCT_NUMBER"));
 			productDTO.setProduct_upload(resultSet.getString("PRODUCT_UPLOAD"));
 			productDTO.setProduct_update(resultSet.getString("PRODUCT_UPDATE"));
@@ -76,12 +77,15 @@ public class ProductDAO implements ProductService {
 			Context context=new InitialContext();
 			DataSource dataSource=(DataSource)context.lookup("java:comp/env/jdbc");
 			connection= dataSource.getConnection();
+			
 			String sql="select * from PRODUCT ";
 			sql+="where product_number=?";
 			log.info("SQL확인" +sql);
+			
 			preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setInt(1, product_number);
 			resultSet = preparedStatement.executeQuery();
+			
 			while (resultSet.next()) {
 				productDTO.setProduct_number(resultSet.getInt("product_number"));
 				productDTO.setProduct_upload(resultSet.getString("product_upload"));
@@ -90,6 +94,8 @@ public class ProductDAO implements ProductService {
 				productDTO.setProduct_price(resultSet.getInt("product_price"));
 				productDTO.setProduct_content(resultSet.getString("product_content"));
 				productDTO.setProduct_status(resultSet.getString("product_status"));
+				productDTO.setImg_index(resultSet.getInt("img_index"));
+				System.out.println("resultSet img_index = " + resultSet.getInt("img_index"));
 			}
 		} catch (Exception e) {
 			log.info("특정 부서 조회 실패 - " + e);
@@ -272,6 +278,44 @@ public class ProductDAO implements ProductService {
 			return arrayList;
 		
 		
+	}
+	
+	public String productSelectImgUrl(int img_index) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		String img_url = null;
+		
+		try {
+			Context context=new InitialContext();
+			DataSource dataSource=(DataSource)context.lookup("java:comp/env/jdbc");
+			connection= dataSource.getConnection();
+			
+	        String sql = "SELECT IMG_URL FROM IMG WHERE PRODUCT_INDEX = ?";
+	        
+	        preparedStatement = connection.prepareStatement(sql);
+	        preparedStatement.setInt(1, img_index);
+	        
+	        resultSet = preparedStatement.executeQuery();
+						
+			while (resultSet.next()) {
+				img_url = resultSet.getString("img_url");
+			}
+		} catch (Exception e) {
+			log.info("특정 img_url 조회 실패 - " + e);
+		}finally {
+			try {
+				resultSet.close( );
+				preparedStatement.close( );
+				connection.close( );
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+		
+		return img_url;
 	}
 
 }
