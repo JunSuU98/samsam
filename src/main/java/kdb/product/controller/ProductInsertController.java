@@ -27,12 +27,17 @@ public class ProductInsertController implements Controller {
 		String product_content =request.getParameter("product_content");
 		log.info(product_content);
 		String product_status = request.getParameter("product_status");
+		
+		int img_index = Integer.parseInt(request.getParameter("img_index"));
+		
 		ProductDAO productDAO= new ProductDAO();
 		ProductDTO productDTO= new ProductDTO();
+		
 		ArrayList<ProductDTO> arrayList = new ArrayList<ProductDTO>();
 		arrayList=productDAO.productSelectAll();
 		log.info(arrayList);
 		request.setAttribute("arrayList", arrayList);
+		
 		//productDTO.setProduct_number(product_number);
 		productDTO.setProduct_upload(product_upload);
 		productDTO.setProduct_update(product_update);
@@ -40,7 +45,11 @@ public class ProductInsertController implements Controller {
 		productDTO.setProduct_price(product_price);
 		productDTO.setProduct_content(product_content);
 		productDTO.setProduct_status(product_status);
+		productDTO.setImg_index(img_index);
+		
+		
 		productDTO =productDAO.productInsert(productDTO);
+		
 		request.setAttribute("productDTO", productDTO);
 		ProductHandlerAdapter productHandlerAdapter =new ProductHandlerAdapter();
 		productHandlerAdapter.setPath("/WEB-INF/view/product_view/product_insert_view.jsp");

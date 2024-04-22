@@ -53,6 +53,7 @@
 
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="./js/jquery-3.5.1.min.js" type="text/javascript"></script>
 </head>
 <body>
 <header id="main-header" class="py-2 bg-dark text-white">
@@ -97,6 +98,10 @@
                                <div class="form-group">
                                     <input type="hidden" name="product_status" id="product_status" class="form-control form-control-sm"  value="판매중">
                                 </div>
+                                
+                                <div class="form-group">
+                                    <input type="hidden" name="img_index" id="img_index" class="form-control form-control-sm">
+                                </div>
                       
                                 <div class="form-group">
                                 	<button type="button" onclick="openModal()">상품 이미지 업로드</button>
@@ -134,6 +139,54 @@
             modal.style.display = "none";
         }
     });
+    
+    
+    function generateUniqueRandomNumber() {
+        let numbers = [];
+        
+        let randomNumber = Math.floor(Math.random() * 10);
+        
+        while(numbers.includes(randomNumber)){
+        	randomNumber = Math.floor(Math.random() * 10);
+        }
+
+        return randomNumber;
+    }
+
+    let uniqueNumber = generateUniqueRandomNumber();
+    console.log(uniqueNumber);
+    
+   		// 서버로부터 기존에 사용되었던 PRODUCT 테이블의 IMG_INDEX 를 모두 가져와서 겹치는게 있다면 새롭게 랜덤한 숫자를 생성한다
+      	$.ajax({
+      		url: "/ProductSelectImgIndex.pr",
+      		type: "get",
+      		
+      		success: function(response){
+      			
+      			let img_index_arr = response;
+      			
+      	        let randomNumber = Math.floor(Math.random() * 10);
+      	        
+      	        while(img_index_arr.includes(randomNumber)){
+      	        	randomNumber = Math.floor(Math.random() * 10);
+      	        }
+      	        
+      	        document.getElementById('img_index').value = randomNumber;
+      	        document.getElementById('product_index').value = randomNumber;
+
+      			
+      		},
+      		
+     		error: function(status, error){
+     			console.log("ajax error" + status + "- " + error)
+     			console.log("error - " + error)
+     		}
+      	});
+    	
+  
+
+    
+    
 </script>
 
 </body>

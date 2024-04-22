@@ -14,6 +14,7 @@ import org.apache.commons.logging.LogFactory;
 
 import kdb.product.control.Controller;
 import kdb.product.controller.ProductDeleteController;
+import kdb.product.controller.ProductImgIndexController;
 import kdb.product.controller.ProductInsertController;
 import kdb.product.controller.ProductSelectController;
 import kdb.product.controller.ProductSelectDetailController;
@@ -87,6 +88,17 @@ public class ProductDispatchServlet extends HttpServlet implements Servlet {
 			productHandlerAdapter = controller.execute(request, response);
 			log.info("부서 삭제 확인 - " + productHandlerAdapter);
 			}
+		
+		else if(pathURL.equals("/ProductSelectImgIndex.pr")) {
+			controller = new ProductImgIndexController();
+			productHandlerAdapter = controller.execute(request, response);
+			log.info("전체 이미지 인덱스 확인 - " + productHandlerAdapter);
+		}
+		
+		
+		
+		
+		
 		 if(productHandlerAdapter != null) {
 			 if(productHandlerAdapter.isRedirect( )) {
 			response.sendRedirect(productHandlerAdapter.getPath( ));

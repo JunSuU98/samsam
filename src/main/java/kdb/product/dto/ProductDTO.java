@@ -8,11 +8,18 @@ public class ProductDTO {
 	private int product_price;
 	private String product_content;
 	private String product_status;
+	private int img_index;
 	public int getProduct_number() {
 		return product_number;
 	}
 	public void setProduct_number(int product_number) {
 		this.product_number = product_number;
+	}
+	public int getImg_index() {
+		return img_index;
+	}
+	public void setImg_index(int img_index) {
+		this.img_index = img_index;
 	}
 	public String getProduct_upload() {
 		return product_upload;
@@ -54,6 +61,9 @@ public class ProductDTO {
 	public String toString() {
 		return "ProductDTO [product_number=" + product_number + ", product_upload=" + product_upload
 				+ ", product_update=" + product_update + ", product_title=" + product_title + ", product_price="
-				+ product_price + ", product_content=" + product_content + ", product_status=" + product_status + "]";
+				+ product_price + ", product_content=" + product_content + ", product_status=" + product_status
+				+ ", img_index=" + img_index + "]";
 	}
+
+	
 }

@@ -49,6 +49,14 @@
                                     <input type="hidden" name="img_url" id="img_url" class="form-control-file">
                                 </div>
                             </div>
+                            
+                            <div class="form-group row">
+                                <div class="ml-sm-4">
+                                    <input type="hidden" name="product_index" id="product_index" class="form-control-file">
+                                </div>
+                            </div>
+                            
+                            
                             <div class="form-group ml-sm-2">
                                 <button type="submit" class="btn btn-primary btn-sm">완료</button>
                                 <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/ProductInsertView.pr'">취소</button>

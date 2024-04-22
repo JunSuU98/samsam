@@ -5,6 +5,7 @@ public class ImgDTO {
 	private String img_upload;
 	private String img_update;
 	private String img_url;
+	private int product_index;
 	
 	public int getImg_number() {
 		return img_number;
@@ -31,10 +32,19 @@ public class ImgDTO {
 		this.img_url = img_url;
 	}
 	
+	
+	
+	public int getProduct_index() {
+		return product_index;
+	}
+	public void setProduct_index(int product_index) {
+		this.product_index = product_index;
+	}
 	@Override
 	public String toString() {
 		return "ImgDTO [img_number=" + img_number + ", img_upload=" + img_upload + ", img_update=" + img_update
-				+ ", img_url=" + img_url + "]";
+				+ ", img_url=" + img_url + ", product_index=" + product_index + "]";
 	}
+
 	
 }

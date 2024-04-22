@@ -122,8 +122,8 @@ public class ImgDAO implements ImgService{
 			Context context = new InitialContext();
 			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 			connection = dataSource.getConnection();
-			String sql = "insert into img (img_number, img_upload, img_update, img_url ) ";
-			sql += " values (img_seq.NEXTVAL, TO_DATE(?, 'YYYY-MM-DD'), TO_DATE(?, 'YYYY-MM-DD'), ? ) ";
+			String sql = "insert into img (img_number, img_upload, img_update, img_url, product_index ) ";
+			sql += " values (img_seq.NEXTVAL, TO_DATE(?, 'YYYY-MM-DD'), TO_DATE(?, 'YYYY-MM-DD'), ?, ? ) ";
 			log.info("SQL 확인 - " + sql);
 			
 			preparedStatement = connection.prepareStatement(sql);
@@ -131,6 +131,7 @@ public class ImgDAO implements ImgService{
 			preparedStatement.setString(1, imgDTO.getImg_upload());
 			preparedStatement.setString(2, imgDTO.getImg_update());
 			preparedStatement.setString(3, imgDTO.getImg_url());
+			preparedStatement.setInt(4, imgDTO.getProduct_index());
 			
 			int count = preparedStatement.executeUpdate();
 			

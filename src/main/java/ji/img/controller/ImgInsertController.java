@@ -37,6 +37,8 @@ public class ImgInsertController implements ImgController {
     	String img_upload = multipartRequest.getParameter("img_upload");
     	String img_update = multipartRequest.getParameter("img_update");
     	
+    	int product_index = Integer.parseInt(multipartRequest.getParameter("product_index"));
+    	
     	Enumeration<?> enumeration = multipartRequest.getFileNames();
     	
     	String file = (String) enumeration.nextElement();
@@ -48,25 +50,6 @@ public class ImgInsertController implements ImgController {
     	System.out.println("img update - "+img_update);
     	System.out.println("img url - " + img_url);
     	
-//        String teString = request.getParameter("test_value");
-//        System.out.println("test date - " + teString);
-//        
-//        String other_form = request.getParameter("other_form");
-//        System.out.println("other form - " + other_form);
-//        
-//        String img_upload = request.getParameter("img_upload");
-//        System.out.println(img_upload);
-//        log.info(img_upload);
-//        
-//        Part img_upload_partString = request.getPart("img_upload");
-//        System.out.println("img upload part" + img_upload_partString);
-//
-//        String img_update = request.getParameter("img_update");
-//        System.out.println(img_update);
-//        log.info(img_update);
-//
-//        String img_url = request.getParameter("img_url");
-//        log.info(img_url);
 
         ImgDAO imgDao = new ImgDAO();
         ImgDTO imgDTO = new ImgDTO();
@@ -80,6 +63,7 @@ public class ImgInsertController implements ImgController {
         imgDTO.setImg_upload(img_upload);
         imgDTO.setImg_update(img_update);
         imgDTO.setImg_url(img_url);
+        imgDTO.setProduct_index(product_index);
 
         imgDTO = imgDao.imgInsert(imgDTO);
         log.info(imgDTO);

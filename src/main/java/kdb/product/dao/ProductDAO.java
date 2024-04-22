@@ -114,14 +114,16 @@ public class ProductDAO implements ProductService {
 	        DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc");
 	        connection = dataSource.getConnection();
 	        connection.setAutoCommit(false);
-	        String sql = "INSERT INTO PRODUCT(product_number, product_upload, product_update, product_title, product_price, product_content, product_status) ";
-	        sql += "VALUES(product_seq.NEXTVAL, sysdate, sysdate, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO PRODUCT(product_number, product_upload, product_update, product_title, product_price, product_content, product_status, img_index) ";
+	        sql += "VALUES(product_seq.NEXTVAL, sysdate, sysdate, ?, ?, ?, ?, ?)";
 	        log.info("SQL 확인 - " + sql);
 	        preparedStatement = connection.prepareStatement(sql);
 	        preparedStatement.setString(1, productDTO.getProduct_title());
 	        preparedStatement.setInt(2, productDTO.getProduct_price());
 	        preparedStatement.setString(3, productDTO.getProduct_content());
 	        preparedStatement.setString(4, productDTO.getProduct_status());
+	        preparedStatement.setInt(5, productDTO.getImg_index());
+	       
 	        int count = preparedStatement.executeUpdate();
 	        if (count > 0) {
 	            connection.commit();
@@ -220,6 +222,56 @@ public class ProductDAO implements ProductService {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList productSelectImgIndex() {
+		
+		Connection connection =null;
+		PreparedStatement preparedStatement =null;
+		ResultSet resultSet =null;
+		ArrayList<ProductDTO>arrayList = new ArrayList<ProductDTO>();
+		
+		try {
+			Context context = new InitialContext();
+			DataSource dataSource = (DataSource)context.lookup("java:comp/env/jdbc");
+			connection =dataSource.getConnection();
+			
+			String sql="select img_index from PRODUCT";
+			log.info("SQL 확인 - " + sql);
+			
+			preparedStatement =connection.prepareStatement(sql);
+			resultSet = preparedStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				ProductDTO productDTO = new ProductDTO();
+				productDTO.setImg_index(resultSet.getInt("img_index"));
+				
+				log.info("productDTO.img_index - " + productDTO.getImg_index());
+				
+				arrayList.add(productDTO);
+				
+				resultSet.getRow();
+				if (resultSet.getRow() ==0) {
+					log.info("등록한 이미지 번호가 없습니다.");
+				}				
+			}
+			
+		} catch (Exception e) {
+				log.info("전체 부서 조회 실패 - " + e);
+			
+		} finally {
+			try {
+				resultSet.close();
+				preparedStatement.close();
+				connection.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		
+			return arrayList;
+		
+		
 	}
 
 }
