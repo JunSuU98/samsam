@@ -18,7 +18,11 @@
 		<c:choose>
 			<c:when test="${not empty memberDTO.member_id}">
 				<h2>회원님의 아이디는 ${memberDTO.member_id} 입니다.</h2>
-				
+
+				<button type="button" class="btn btn-primary" onclick="location.href='./index.jsp'">
+					메인화면으로 돌아가기
+				</button>
+			
 				<button type="button" class="btn btn-primary" onclick="location.href='/LoginView.me'">
 					로그인 하러가기
 				</button>
