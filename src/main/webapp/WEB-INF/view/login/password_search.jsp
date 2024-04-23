@@ -14,7 +14,7 @@
 <body>
 
 	<c:choose>
-		<c:when test="${not memberDTO.member_id eq ''}">
+		<c:when test="${not empty memberDTO.member_id}">
 		
 			<div>
 				<h2>${memberDTO.member_id} 님의 비밀번호입니다.</h2>

@@ -26,7 +26,7 @@
 					console.log("아이디 값 - " + result);
 					
 					if($.trim(result) == 1){
-						alert("이미 등록된 아이디입니다.");
+						alert("사용할 수 없는 아이디입니다.");
 						$('member_id').focus();
 					} else {
 						alert("사용할 수 있는 아이디입니다.");

@@ -32,6 +32,7 @@ public class PasswordSearchController implements Controller {
 		MemberDAO memberDAO = new MemberDAO();
 		memberDTO = memberDAO.memberSearchPassword(memberDTO);
 		System.out.println(memberDTO.getMember_number());
+		System.out.println("PW 찾기 member_id - "+memberDTO.getMember_id());
 		
 		request.setAttribute("memberDTO", memberDTO);
 		

@@ -403,6 +403,8 @@ public class MemberDAO implements MemberService {
 				memberDTO.setMember_number(resultSet.getInt("member_number"));
 				memberDTO.setMember_id(resultSet.getString("member_id"));
 				memberDTO.setMember_password(resultSet.getString("member_password"));
+			} else {
+				memberDTO = new MemberDTO();
 			}
 			
 			
