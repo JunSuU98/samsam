@@ -29,7 +29,9 @@ public class ImgInsertController implements ImgController {
         //int img_number = 0; // 시퀀스로 생성했으니까 쓸 필요 없음
 
     	//String path = request.getSession().getServletContext().getRealPath("./upload");
-    	String path = ("C:\\samsamimg");
+    	//String path = ("C:\\samsamimg");
+    	String path = ("/Users/haru/samsamimg");
+
     	int size = 10 * 1024 * 1024;
         
     	MultipartRequest multipartRequest = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());

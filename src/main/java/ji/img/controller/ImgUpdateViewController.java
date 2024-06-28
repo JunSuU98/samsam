@@ -23,7 +23,8 @@ public class ImgUpdateViewController implements ImgController{
 	@Override
 	public ImgHandlerAdapter execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-    	String path = ("C:\\samsamimg");
+    	//String path = ("C:\\samsamimg");
+		String path = ("/Users/haru/samsamimg");
     	int size = 10 * 1024 * 1024;
         
     	MultipartRequest multipartRequest = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());

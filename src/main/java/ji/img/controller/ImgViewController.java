@@ -24,7 +24,8 @@ public class ImgViewController implements ImgController {
 		String img_url = request.getParameter("img_url");
 		System.out.println("img_url - " + img_url);
 		
-		String img_path = "C:\\\\samsamimg\\" + img_url;
+		//String img_path = "C:\\\\samsamimg\\" + img_url;
+		String img_path = "/Users/haru/samsamimg/" + img_url;
 		System.out.println("img_path - " + img_path);
 		
 		File imageFile = new File(img_path);
